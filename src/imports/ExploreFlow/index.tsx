@@ -11,7 +11,7 @@ import imgBackgroundBorder1 from "./65ac0ca1d450c7e231ffe8219025936555d9aef9.png
 
 function ContainerCategory() {
   return (
-    <div className="content-stretch flex items-center overflow-x-auto overflow-y-clip relative shrink-0 w-full" data-name="Container Category">
+    <div className="content-stretch flex items-center overflow-x-auto overflow-y-clip relative shrink-0 w-full scrollbar-none" data-name="Container Category">
       <div className="content-stretch flex gap-[6px] h-[46px] items-center px-[24px] py-[6px] relative shrink-0" data-name="Category Chips">
         <div className="bg-[#f6f7fd] content-stretch flex gap-[4px] items-center px-[12px] py-[8px] relative rounded-[10px] shrink-0" data-name="Chip">
           <p className="[word-break:break-word] font-['Source_Sans_Pro:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#2d3648] text-[14px] tracking-[-0.14px] whitespace-nowrap">All</p>
@@ -279,7 +279,7 @@ function Container1() {
 
 function CarouselMajorEvents() {
   return (
-    <div className="h-[229.5px] overflow-x-auto overflow-y-clip relative shrink-0 w-full" data-name="Carousel: Major Events">
+    <div className="h-[229.5px] overflow-x-auto overflow-y-clip relative shrink-0 w-full scrollbar-none" data-name="Carousel: Major Events">
       <Container1 />
     </div>
   );
@@ -494,7 +494,7 @@ function Container12() {
 function Container11() {
   return (
     <div className="relative shrink-0 w-full" data-name="Container">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start overflow-x-auto overflow-y-clip relative rounded-[inherit] size-full">
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start overflow-x-auto overflow-y-clip relative rounded-[inherit] size-full scrollbar-none">
         <Container12 />
       </div>
     </div>

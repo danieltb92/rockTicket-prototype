@@ -40,8 +40,8 @@ const CATEGORIES = ["All", "Metal", "Classic", "Punk", "Indie", "Trash", "Altern
 
 function CategoryChips({ active, onSelect }: { active: string; onSelect: (c: string) => void }) {
   return (
-    <div className="overflow-x-auto overflow-y-clip relative shrink-0 w-full">
-      <div className="flex gap-[6px] h-[46px] items-center px-[24px] py-[6px] scrollbar-none ">
+    <div className="overflow-x-auto overflow-y-clip relative shrink-0 w-full scrollbar-none">
+      <div className="flex gap-[6px] h-[46px] items-center px-[24px] py-[6px] ">
         {CATEGORIES.map((c) => (
           <button
             key={c}
@@ -110,7 +110,7 @@ function MajorEventsSection({ onEventClick }: { onEventClick: () => void }) {
           <p className="leading-[16px] text-[#b6fffc] text-[14px] tracking-[1.2px] uppercase text-right" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>See<br />All</p>
         </button>
       </div>
-      <div className="overflow-x-auto overflow-y-clip w-full">
+      <div className="overflow-x-auto overflow-y-clip w-full scrollbar-none">
         <div className="flex gap-[16px] items-center px-[24px] pb-[4px]">
           <EventCard img={imgCard} tag="SELLING FAST" tagVariant="teal" date="AUG 24  . OLYMPIC STADIUM" title="IRON MAIDEN:" subtitle="World Slavery Tour" />
           <EventCard img={imgCard1} tag="Sold Out" tagVariant="dark" date="AUG 30  . movistar arena" title="The midnight echoes" onClick={onEventClick} />
@@ -158,7 +158,7 @@ function LocalTalentSection({ onArtistClick }: { onArtistClick: () => void }) {
         <p className="leading-[30px] text-[40px] text-white tracking-[-0.5px] capitalize" style={{ fontFamily: "'Squada One', sans-serif" }}>Local Talent Spotlight</p>
         <p className="leading-[16px] text-[#9aadf4] text-[14px] tracking-[1.2px] uppercase" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>Rising Stars Near You</p>
       </div>
-      <div className="overflow-x-auto overflow-y-clip w-full">
+      <div className="overflow-x-auto overflow-y-clip w-full scrollbar-none">
         <div className="flex gap-[16px] items-start">
           <ArtistCard img={imgImageContent} name="Velvet Echo" genre="Alternative Rock" day="Friday" venue="The Cellar" />
           <ArtistCard img={imgImageContent1} name="Hot Guitar" genre="Indie Rock" day="Saturday" venue="Rock Bunker" />
@@ -296,7 +296,7 @@ function HomeScreen({ onEventClick, onArtistClick }: { onEventClick: () => void;
       </div>
 
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto pt-[145px] w-full">
+      <div className="flex-1 overflow-y-auto pt-[145px] w-full scrollbar-none">
         <CategoryChips active={activeCategory} onSelect={setActiveCategory} />
         <MajorEventsSection onEventClick={onEventClick} />
         <LocalTalentSection onArtistClick={onArtistClick} />
@@ -326,7 +326,7 @@ function EventDetailScreen({ onBack, onArtistClick }: { onBack: () => void; onAr
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto scrollbar-none">
         {/* Hero */}
         <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
           <img
@@ -483,7 +483,7 @@ function ArtistScreen({ onBack }: { onBack: () => void }) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto scrollbar-none">
         {/* Hero */}
         <div className="h-[480px] relative overflow-hidden shrink-0">
           <img alt="The Midnight Echoes" className="absolute max-w-none object-cover" src={imgSection}
