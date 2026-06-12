@@ -1,4 +1,17 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import {
+  Accessibility,
+  ChevronRight,
+  Flame,
+  Headphones,
+  Heart,
+  Home,
+  Search,
+  Shield,
+  Ticket,
+  User,
+  WalletCards,
+} from "lucide-react";
 import svgPaths from "../imports/ExploreFlow/svg-1jcjc478ov";
 import imgCard from "../imports/ExploreFlow/0bc405322095361d894f0994829a4954829ea0e0.png";
 import imgCard1 from "../imports/ExploreFlow/0f125f89f467f5fb817508a4d8838a8146bc1c59.png";
@@ -10,7 +23,8 @@ import imgSection from "../imports/ExploreFlow/49d72399db1c94f16bbf9602e5e863673
 import imgBackgroundBorder from "../imports/ExploreFlow/f1a1719a473706f7484e063b8901701ab535998c.png";
 import imgBackgroundBorder1 from "../imports/ExploreFlow/65ac0ca1d450c7e231ffe8219025936555d9aef9.png";
 
-type Screen = "home" | "event" | "artist";
+type Screen = "home" | "event" | "artist" | "profile";
+type TabScreen = "home" | "profile";
 
 function StatusBar() {
   return (
@@ -212,56 +226,57 @@ function PopularVenuesSection() {
   );
 }
 
-function BottomNav() {
+function BottomNav({ active, onNavigate }: { active: TabScreen; onNavigate: (screen: TabScreen) => void }) {
+  const items: Array<{ label: string; tab?: TabScreen }> = [
+    { label: "Home", tab: "home" },
+    { label: "Search" },
+    { label: "Tickets" },
+    { label: "My Bands" },
+    { label: "Profile", tab: "profile" },
+  ];
+
   return (
     <div className="h-[80px] left-0 w-full z-[1] flex-shrink-0">
       <div className="bg-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full">
         <div className="bg-[#272727] h-px opacity-20 w-full" />
         <div className="flex gap-[8px] items-start px-[8px] w-full">
-          {[
-            { label: "Home", active: true },
-            { label: "Search", active: false },
-            { label: "Tickets", active: false },
-            { label: "My Bands", active: false },
-            { label: "Profile", active: false },
-          ].map(({ label, active }) => (
-            <div key={label} className="flex flex-1 flex-col gap-[8px] items-center min-w-0 py-[9px] cursor-pointer">
+          {items.map(({ label, tab }) => {
+            const isActive = tab === active;
+            const color = isActive ? "#007E7C" : "#404040";
+
+            return (
+            <button
+              key={label}
+              onClick={() => tab && onNavigate(tab)}
+              className="flex flex-1 flex-col gap-[8px] items-center min-w-0 py-[9px] cursor-pointer disabled:cursor-default bg-transparent"
+              disabled={!tab}
+            >
               <div className="size-[24px] flex items-center justify-center">
                 {label === "Home" && (
-                  <svg className="size-[22px]" fill="none" viewBox="0 0 20 22">
-                    <path clipRule="evenodd" d={svgPaths.p26406200} fill={active ? "#007E7C" : "#404040"} fillRule="evenodd" />
-                  </svg>
+                  <Home className="size-[24px]" color={color} strokeWidth={2.25} />
                 )}
                 {label === "Search" && (
-                  <svg className="size-[20px]" fill="none" viewBox="0 0 19.9997 19.9997">
-                    <path d={svgPaths.p3921ef80} fill="#404040" />
-                  </svg>
+                  <Search className="size-[24px]" color={color} strokeWidth={2.25} />
                 )}
                 {label === "Tickets" && (
-                  <svg className="size-[22px]" fill="none" viewBox="0 0 22.4999 22.4999">
-                    <path d={svgPaths.p33fc8c80} stroke="#404040" strokeMiterlimit="10" strokeWidth="1.5" />
-                  </svg>
+                  <Ticket className="size-[24px]" color={color} strokeWidth={2.25} />
                 )}
                 {label === "My Bands" && (
-                  <svg className="size-[22px]" fill="none" viewBox="0 0 22.8801 20.444">
-                    <path clipRule="evenodd" d={svgPaths.pce61800} fill="#404040" fillRule="evenodd" />
-                  </svg>
+                  <Heart className="size-[25px]" color={color} strokeWidth={2.25} />
                 )}
                 {label === "Profile" && (
-                  <svg className="size-[20px]" fill="none" viewBox="0 0 18 20">
-                    <path clipRule="evenodd" d={svgPaths.p3a955100} fill="#404040" fillRule="evenodd" />
-                    <path d={svgPaths.p16705e00} fill="#404040" />
-                  </svg>
+                  <User className="size-[25px]" color={color} strokeWidth={2.25} />
                 )}
               </div>
               <p
                 className="leading-none text-[12px] text-center tracking-[-0.12px] w-full"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif", color: active ? "#007e7c" : "#404040" }}
+                style={{ fontFamily: "'Source Sans Pro', sans-serif", color }}
               >
                 {label}
               </p>
-            </div>
-          ))}
+            </button>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -269,7 +284,15 @@ function BottomNav() {
 }
 
 // ── HOME SCREEN ────────────────────────────────────────────────────────────────
-function HomeScreen({ onEventClick, onArtistClick }: { onEventClick: () => void; onArtistClick: () => void }) {
+function HomeScreen({
+  onEventClick,
+  onArtistClick,
+  onTabNavigate,
+}: {
+  onEventClick: () => void;
+  onArtistClick: () => void;
+  onTabNavigate: (screen: TabScreen) => void;
+}) {
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
@@ -303,7 +326,7 @@ function HomeScreen({ onEventClick, onArtistClick }: { onEventClick: () => void;
         <PopularVenuesSection />
       </div>
 
-      <BottomNav />
+      <BottomNav active="home" onNavigate={onTabNavigate} />
     </div>
   );
 }
@@ -674,6 +697,130 @@ function ArtistScreen({ onBack }: { onBack: () => void }) {
   );
 }
 
+function ProfileRow({
+  icon,
+  label,
+}: {
+  icon: ReactNode;
+  label: string;
+}) {
+  return (
+    <button className="flex h-[58px] items-center w-full cursor-pointer text-left">
+      <div className="flex items-center justify-center w-[62px] shrink-0 text-white">
+        {icon}
+      </div>
+      <p className="flex-1 leading-[24px] text-[16px] text-white" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+        {label}
+      </p>
+      <ChevronRight className="mr-[18px] size-[28px] text-white" strokeWidth={3} />
+    </button>
+  );
+}
+
+function ProfileScreen({ onTabNavigate }: { onTabNavigate: (screen: TabScreen) => void }) {
+  const rows = [
+    { label: "Personal information", icon: <User className="size-[25px]" strokeWidth={2.2} /> },
+    { label: "Payments and payout", icon: <WalletCards className="size-[25px]" strokeWidth={2.2} /> },
+    { label: "Login & Security", icon: <Shield className="size-[25px]" strokeWidth={2.2} /> },
+    { label: "Accessibility", icon: <Accessibility className="size-[25px]" strokeWidth={2.2} /> },
+    { label: "Your orders", icon: <Ticket className="size-[25px]" strokeWidth={2.2} /> },
+    { label: "Support", icon: <Headphones className="size-[25px]" strokeWidth={2.2} /> },
+  ];
+
+  return (
+    <div className="bg-[#030404] flex flex-col h-full relative w-full">
+      <div className="flex-1 overflow-y-auto scrollbar-none">
+        <div className="bg-[#090202] pb-[30px]">
+          <StatusBar />
+          <div className="px-[24px] pt-[24px]">
+            <p className="leading-[54px] text-[52px] text-white" style={{ fontFamily: "'Squada One', sans-serif" }}>
+              Profile
+            </p>
+          </div>
+          <div className="flex items-center gap-[20px] px-[24px] pt-[30px]">
+            <div
+              className="flex items-center justify-center rounded-full size-[80px] shrink-0"
+              style={{
+                background: "linear-gradient(135deg, #ffc400 0%, #88671e 48%, #141454 100%)",
+                border: "5px solid #3338df",
+              }}
+            >
+              <p className="leading-none text-[46px] text-white" style={{ fontFamily: "'Squada One', sans-serif" }}>
+                PJ
+              </p>
+            </div>
+            <div className="min-w-0 pt-[4px]">
+              <p className="max-w-[230px] overflow-hidden leading-[38px] text-[36px] text-white tracking-[-0.4px] whitespace-nowrap" style={{ fontFamily: "'Squada One', sans-serif" }}>
+                Pedro Jimenez
+              </p>
+              <p className="leading-[24px] text-[#9aadf4] text-[22px]" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+                Bogota, Colombia.
+              </p>
+              <div className="bg-white flex gap-[8px] items-center mt-[12px] px-[10px] py-[4px] rounded-[6px] w-fit" style={{ border: "2px solid #2d5bff" }}>
+                <Flame className="size-[14px] text-[#2252df]" strokeWidth={2.5} />
+                <p className="leading-[16px] text-[#2252df] text-[12px] tracking-[0.2px] uppercase whitespace-nowrap" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>
+                  Backstage Fan
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-[24px] pb-[28px] pt-[22px]">
+          <div className="flex items-center gap-[10px] w-full">
+            <div className="bg-[#141454] flex h-[36px] items-center justify-center rounded-[6px] w-[54px] shrink-0">
+              <p className="text-[14px] text-white" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>LVL.42</p>
+            </div>
+            <div className="bg-[#d1dbef] flex-1 h-[10px] overflow-hidden rounded-full">
+              <div className="bg-[#3b31bb] h-full rounded-full w-1/2" />
+            </div>
+            <p className="leading-[24px] text-[16px] text-white w-[34px]" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>50%</p>
+          </div>
+
+          <div className="bg-[#181818] mt-[20px] rounded-[8px] px-[40px] py-[34px] w-full" style={{ border: "2px solid #2a2a2a" }}>
+            <p className="leading-[18px] text-[#9aadf4] text-[16px] tracking-[0.5px] uppercase" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 700 }}>
+              •&nbsp;&nbsp; Overview
+            </p>
+            <div className="flex items-end justify-between pt-[28px]">
+              {[
+                { value: "13", label: "Artists Follow" },
+                { value: "4", label: "Shows" },
+                { value: "21", label: "Favorites" },
+              ].map(({ value, label }) => (
+                <div key={label} className="flex flex-col items-center min-w-[74px]">
+                  <p className="leading-[64px] text-[64px] text-white" style={{ fontFamily: "'Source Sans Pro', sans-serif", fontWeight: 400 }}>
+                    {value}
+                  </p>
+                  <p className="leading-[20px] text-[16px] text-white whitespace-nowrap" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-[18px] mt-[26px]">
+            <p className="leading-[42px] text-[44px] text-white tracking-[1.4px] uppercase" style={{ fontFamily: "'Squada One', sans-serif" }}>
+              Account
+            </p>
+            <div className="bg-[#303030] flex-1 h-px" />
+          </div>
+
+          <div className="mt-[34px]">
+            {rows.map((row) => (
+              <div key={row.label} className="border-b border-[#565656]">
+                <ProfileRow icon={row.icon} label={row.label} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <BottomNav active="profile" onNavigate={onTabNavigate} />
+    </div>
+  );
+}
+
 // ── ROOT APP ───────────────────────────────────────────────────────────────────
 export default function App() {
   const [screen, setScreen] = useState<Screen>("home");
@@ -684,6 +831,11 @@ export default function App() {
     setScreen(to);
   };
 
+  const navigateTab = (to: TabScreen) => {
+    setHistory([]);
+    setScreen(to);
+  };
+
   const goBack = () => {
     const prev = history[history.length - 1] ?? "home";
     setHistory((h) => h.slice(0, -1));
@@ -691,7 +843,7 @@ export default function App() {
   };
 
   const getTranslate = (s: Screen) => {
-    const order: Screen[] = ["home", "event", "artist"];
+    const order: Screen[] = ["home", "event", "artist", "profile"];
     const curr = order.indexOf(screen);
     const idx = order.indexOf(s);
     if (idx < curr) return "-100%";
@@ -710,7 +862,7 @@ export default function App() {
           boxShadow: "0 0 0 1px rgba(255,255,255,0.08), 0 40px 80px rgba(0,0,0,0.8)",
         }}
       >
-        {(["home", "event", "artist"] as Screen[]).map((s) => (
+        {(["home", "event", "artist", "profile"] as Screen[]).map((s) => (
           <div
             key={s}
             className="absolute inset-0 transition-transform duration-300 ease-in-out"
@@ -720,6 +872,7 @@ export default function App() {
               <HomeScreen
                 onEventClick={() => navigate("event")}
                 onArtistClick={() => navigate("artist")}
+                onTabNavigate={navigateTab}
               />
             )}
             {s === "event" && (
@@ -727,6 +880,9 @@ export default function App() {
             )}
             {s === "artist" && (
               <ArtistScreen onBack={goBack} />
+            )}
+            {s === "profile" && (
+              <ProfileScreen onTabNavigate={navigateTab} />
             )}
           </div>
         ))}
