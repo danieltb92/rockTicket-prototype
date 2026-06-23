@@ -772,7 +772,7 @@ function Padding() {
 
 function Header() {
   return (
-    <div className="absolute backdrop-blur-[6px] bg-[rgba(10,5,5,0.8)] content-stretch flex flex-col items-center left-0 top-0 w-[390px] z-[2]" data-name="Header">
+    <div className="absolute bg-[#0A0505] content-stretch flex flex-col items-center left-0 top-0 w-[390px] z-[2]" data-name="Header">
       <div className="h-[40px] overflow-clip relative shrink-0 w-[390px]" data-name="status bar">
         <Icons />
         <p className="[word-break:break-word] absolute font-['Inter:Bold',sans-serif] font-bold leading-[20px] left-[32px] not-italic text-[14px] text-white top-[calc(50%-10px)] whitespace-nowrap">9:41</p>

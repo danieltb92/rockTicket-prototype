@@ -298,7 +298,7 @@ function HomeScreen({
   return (
     <div className="bg-[#090909] flex flex-col h-full isolate items-start relative w-full">
       {/* Fixed header */}
-      <div className="absolute top-0 left-0 right-0 backdrop-blur-[6px] z-[2]" style={{ backgroundColor: "rgba(10,5,5,0.8)" }}>
+      <div className="absolute top-0 left-0 right-0 z-[2] bg-[#0A0505]">
         <StatusBar />
         <div className="flex items-center justify-between px-[24px] py-[16px] w-full">
           <div>
