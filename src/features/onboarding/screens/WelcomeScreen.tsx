@@ -31,10 +31,10 @@ export function WelcomeScreen({
         <StatusBar />
 
         {/* Content */}
-        <div className="flex-1 flex flex-col items-center justify-end px-[24px] pb-[40px]">
-          <div className="flex flex-col items-center gap-[16px] mb-[40px]">
+        <div className="w-full flex-1 flex flex-col items-start justify-end px-[24px] pb-[40px]">
+          <div className="flex flex-col items-start gap-[16px] mb-[40px]">
             <p
-              className="leading-[1.1] text-[44px] text-white text-center uppercase"
+              className="leading-[54px] text-[60px] text-white text-start uppercase"
               style={{ fontFamily: "'Squada One', sans-serif" }}
             >
               BIENVENIDO
@@ -42,7 +42,7 @@ export function WelcomeScreen({
               AL POGO.
             </p>
             <p
-              className="leading-[24px] text-[16px] text-[rgba(255,255,255,0.7)] text-center"
+              className="leading-[30px] text-[24px] text-[rgba(255,255,255,0.7)] text-start"
               style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
             >
               La app oficial para los

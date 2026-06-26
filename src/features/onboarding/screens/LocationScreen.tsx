@@ -39,15 +39,13 @@ export function LocationScreen({
         <StatusBar />
 
         {/* Content */}
-        <div className="flex-1 flex flex-col items-center justify-end px-[24px] pb-[40px]">
-          <div className="flex flex-col items-center gap-[16px] mb-[32px]">
+        <div className="w-full flex-1 flex flex-col items-start justify-end px-[24px] pb-[40px]">
+          <div className="flex flex-col items-start gap-[16px] mb-[32px]">
             <p
-              className="leading-[1.1] text-[44px] text-white text-center uppercase"
+              className="leading-[54px] text-[60px] text-white text-start uppercase"
               style={{ fontFamily: "'Squada One', sans-serif" }}
             >
-              ENCUENTRA
-              <br />
-              EL
+              ENCUENTRA EL
               <br />
               UNDERGROUND.
             </p>
