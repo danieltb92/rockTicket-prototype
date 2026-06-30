@@ -1,16 +1,41 @@
-import type { ReactNode } from "react";
+import { type ReactNode, useRef, useState, useEffect } from "react";
+
+const PHONE_WIDTH = 390;
+const PHONE_HEIGHT = 844;
 
 export function MobileFrame({ children }: { children: ReactNode }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      const s = Math.min(width / PHONE_WIDTH, height / PHONE_HEIGHT, 1);
+      setScale(s);
+    });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-[#050505] flex items-center justify-center w-full h-full"
+    >
       <div
         className="relative overflow-hidden"
         style={{
-          width: "390px",
-          height: "844px",
-          borderRadius: "40px",
+          width: PHONE_WIDTH,
+          height: PHONE_HEIGHT,
+          borderRadius: 40,
           boxShadow:
             "0 0 0 1px rgba(255,255,255,0.08), 0 40px 80px rgba(0,0,0,0.8)",
+          transform: `scale(${scale})`,
+          transformOrigin: "center center",
         }}
       >
         {children}
