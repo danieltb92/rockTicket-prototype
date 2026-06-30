@@ -4,13 +4,12 @@ const PHONE_WIDTH = 390;
 const PHONE_HEIGHT = 844;
 
 function ScrollHint({ scale }: { scale: number }) {
-  if (scale >= 1) return null;
   return (
     <div
       className="text-white/30 text-xs text-center whitespace-nowrap"
       style={{ transform: `scale(${scale})`, transformOrigin: "top center" }}
     >
-      Scroll vertical: Shift + scroll
+      Scroll horizontal: Shift + scroll
     </div>
   );
 }
