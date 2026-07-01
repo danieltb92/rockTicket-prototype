@@ -17,7 +17,11 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - **Path alias**: `@/` maps to `src/` (configured in both `tsconfig.json` and `vite.config.ts`)
 - **Navigation**: Custom hook (`src/shared/hooks/useNavigation.ts`), not react-router. Screens: home, event, artist, profile.
 - **State**: `useOnboardingState` hook with localStorage key `rockticket_onboarding`
-- **Mobile frame**: Fixed 390x844px viewport in `MobileFrame` component
+- **Mobile frame**: 390×844px viewport scaled inside `MobileFrame` component
+- **Layout raíz**: `MobileFrame` es autosuficiente con `flex-col min-h-screen`. No necesita AppShell ni wrappers. Contiene:
+  - Área `flex-1` con el viewport del teléfono escalado vía `ResizeObserver`
+  - Footer `flex-shrink-0` con el aviso de scroll y el botón Reset
+- **Docs**: `docs/PRD.md` contiene el Product Requirements Document completo
 
 ## Key Gotchas
 
@@ -27,6 +31,7 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - **Tailwind v4**: Uses `@tailwindcss/vite` plugin, not PostCSS. The `postcss.config.mjs` is intentionally empty.
 - **Dev reset**: Ctrl+Shift+R or the floating "Reset" button clears all state and reloads.
 - **No `src/assets/` directory exists yet** — Figma asset imports will fail until assets are placed there.
+- **Sin scroll vertical**: El prototipo debe verse completo en una sola pantalla. MobileFrame escala el teléfono para que quepa junto al footer sin scroll. No usar `position: fixed` ni `absolute` fuera del viewport del teléfono.
 
 ## UI Stack
 

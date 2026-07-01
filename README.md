@@ -1,11 +1,31 @@
+# rockTicket
 
-  # High-fidelity prototype
+Prototipo de alta fidelidad de una app de venta de tickets para conciertos, generado desde Figma Make. **No es una app de producción.**
 
-  This is a code bundle for High-fidelity prototype. The original project is available at https://www.figma.com/design/EJlCI3hEvjTCJ8TSkrg7FY/High-fidelity-prototype.
+## Stack
 
-  ## Running the code
+- React 19 + TypeScript + Vite 6
+- Tailwind CSS v4 (vía `@tailwindcss/vite`)
+- shadcn/ui + MUI (Material UI)
+- Google Fonts: Squada One, Source Sans Pro, Be Vietnam Pro
+- pnpm
 
-  Run `npm i` to install the dependencies.
+## Comandos
 
-  Run `npm run dev` to start the development server.
-  
+| Comando | Descripción |
+|---------|-------------|
+| `pnpm install` | Instalar dependencias |
+| `pnpm dev` | Iniciar servidor de desarrollo |
+| `pnpm build` | Build de producción |
+
+## Documentación
+
+- [PRD](./docs/PRD.md) — Product Requirements Document
+- [AGENTS.md](./AGENTS.md) — Instrucciones técnicas para IA
+- [guidelines/Guidelines.md](./guidelines/Guidelines.md) — Guías de layout y diseño
+
+## Notas
+
+- No hay tests, linters ni typecheck configurados.
+- El prototipo debe verse completo en una sola pantalla sin scroll vertical.
+- El estado de onboarding se persiste en `localStorage` con la clave `rockticket_onboarding`.
