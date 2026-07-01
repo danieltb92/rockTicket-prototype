@@ -24,7 +24,7 @@ export function MobileFrame({ children }: { children: ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-[#050505] flex items-center justify-center w-full h-full"
+      className="flex items-center justify-center w-full h-full min-h-0"
     >
       <div
         className="relative overflow-hidden shrink-0"
@@ -40,11 +40,7 @@ export function MobileFrame({ children }: { children: ReactNode }) {
       >
         {children}
       </div>
-      <span
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/30 text-[11px] tracking-wide pointer-events-none select-none"
-      >
-        Scroll horizontal: Shift + scroll
-      </span>
+
     </div>
   );
 }

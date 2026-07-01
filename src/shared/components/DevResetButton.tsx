@@ -22,7 +22,7 @@ export function DevResetButton() {
   return (
     <button
       onClick={resetPrototype}
-      className="fixed bottom-6 right-6 z-50 px-3 py-1.5 rounded-full text-xs cursor-pointer transition-opacity hover:opacity-100 opacity-40"
+      className="px-3 py-1.5 rounded-full text-xs cursor-pointer transition-opacity hover:opacity-100 opacity-40"
       style={{
         backgroundColor: "rgba(0,0,0,0.6)",
         border: "1px solid rgba(255,255,255,0.2)",

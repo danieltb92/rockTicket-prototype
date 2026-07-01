@@ -7,7 +7,7 @@ import { HomeScreen } from "@/features/home/HomeScreen";
 import { EventDetailScreen } from "@/features/home/EventDetailScreen";
 import { ArtistScreen } from "@/features/home/ArtistScreen";
 import { ProfileScreen } from "@/features/profile/ProfileScreen";
-import { DevResetButton } from "@/shared/components/DevResetButton";
+import { AppShell } from "@/shared/components/AppShell";
 
 export default function App() {
   const {
@@ -21,23 +21,21 @@ export default function App() {
   // Onboarding flow
   if (!onboardingCompleted) {
     return (
-      <>
-        <DevResetButton />
+      <AppShell>
         <MobileFrame>
           <OnboardingFlow
             onComplete={completeOnboarding}
             onLogin={login}
           />
         </MobileFrame>
-      </>
+      </AppShell>
     );
   }
 
   // Login screen (for "Ya tengo cuenta")
   if (!isLoggedIn) {
     return (
-      <>
-        <DevResetButton />
+      <AppShell>
         <MobileFrame>
           <LoginScreen
             onLogin={login}
@@ -46,14 +44,13 @@ export default function App() {
             }}
           />
         </MobileFrame>
-      </>
+      </AppShell>
     );
   }
 
   // Main app
   return (
-    <>
-    <DevResetButton />
+    <AppShell>
     <MobileFrame>
       <div className="absolute inset-0 transition-transform duration-300 ease-in-out"
         style={{ transform: `translateX(${screen === "home" ? "0%" : "-100%"})` }}>
@@ -82,6 +79,6 @@ export default function App() {
         <ProfileScreen onTabNavigate={navigateTab} />
       </div>
     </MobileFrame>
-    </>
+    </AppShell>
   );
 }
