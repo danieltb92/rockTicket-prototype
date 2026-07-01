@@ -26,7 +26,7 @@ export function MobileFrame({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-[#050505] flex flex-col w-full h-full">
       <div
         ref={scaleRef}
-        className="flex-1 flex items-center justify-center min-h-0"
+        className="flex-1 flex items-center justify-center min-h-0 p-4"
       >
         <div
           className="relative overflow-hidden shrink-0"
