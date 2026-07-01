@@ -38,3 +38,17 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - shadcn/ui components in `src/app/components/ui/`
 - MUI (Material UI) also installed as dependency
 - Google Fonts: Squada One, Source Sans Pro, Be Vietnam Pro
+
+## Figma Sync Workflow (sin suscripción)
+
+No hay sincronización automática sin plan pago de Figma. Para actualizar el demo manualmente:
+
+1. **Re-exportar desde Figma Make**: Abrir el archivo en Figma Make → botón "Export" → genera código React + assets nuevos.
+2. **Método con MCP Figma** (ya disponible en este entorno):
+   - Ejecutar `figma_get_design_context(fileKey, nodeId)` para obtener el código de referencia de cualquier nodo del diseño.
+   - Usar el código + screenshot como guía para actualizar componentes manualmente.
+3. **Post-export workflow**:
+   - Copiar los assets nuevos a `src/assets/` (los imports `figma:asset/*` resuelven allí).
+   - Revisar `git diff` para identificar qué cambió vs. la versión anterior.
+   - Actualizar solo los componentes afectados, sin sobrescribir modificaciones manuales del prototipo (navegación, estado, MobileFrame layout, etc.).
+   - Correr `pnpm build` para verificar que no hay errores.
