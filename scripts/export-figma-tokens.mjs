@@ -7,6 +7,9 @@
  *   $env:FIGMA_TOKEN="figd_xxx"; $env:FIGMA_FILE_KEY="xxx"; node scripts/export-figma-tokens.mjs
  *
  * Output: design/tokens.json
+ *
+ * Filters out noise (numbered layers, duplicate values, unused fonts)
+ * and keeps only meaningful design tokens.
  */
 
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
@@ -19,6 +22,12 @@ if (!FIGMA_TOKEN || !FIGMA_FILE_KEY) {
 }
 
 const API_BASE = "https://api.figma.com/v1";
+
+// App's actual font families (skip decorative fonts like "Libre Barcode")
+const APP_FONTS = ["Squada One", "Source Sans Pro", "Inter", "Be Vietnam Pro"];
+
+// Standard spacing scale (multiples of 4px, common UI values)
+const STANDARD_SPACING = [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96, 128];
 
 async function fetchFigma(endpoint) {
   const res = await fetch(`${API_BASE}${endpoint}`, {
@@ -34,15 +43,23 @@ async function fetchFigma(endpoint) {
 
 function extractColors(file) {
   const colors = {};
+  const seen = new Set();
 
   function walk(node) {
-    if (node.fills && node.fills.length > 0) {
+    // Skip numbered/unnamed layers (likely auto-generated)
+    const name = node.name || "";
+    const isNumberedLayer = /^\d+$/.test(name);
+
+    if (node.fills && node.fills.length > 0 && !isNumberedLayer) {
       for (const fill of node.fills) {
         if (fill.type === "SOLID" && fill.visible !== false) {
           const { r, g, b } = fill.color;
           const hex = `#${[r, g, b].map((v) => Math.round(v * 255).toString(16).padStart(2, "0")).join("")}`;
-          const name = node.name || "unnamed";
-          if (!colors[name]) colors[name] = hex;
+          const key = `${name}:${hex}`;
+          if (!seen.has(key)) {
+            seen.add(key);
+            colors[name] = hex;
+          }
         }
       }
     }
@@ -57,19 +74,25 @@ function extractColors(file) {
 
 function extractTypography(file) {
   const typography = {};
+  const seen = new Set();
 
   function walk(node) {
     if (node.type === "TEXT" && node.style) {
       const { fontFamily, fontSize, fontWeight, lineHeightPx } = node.style;
-      const name = node.name || "unnamed";
-      const key = `${fontFamily} ${fontSize}px w${fontWeight}`;
-      if (!typography[key]) {
-        typography[key] = {
-          fontFamily,
-          fontSize: `${fontSize}px`,
-          fontWeight: String(fontWeight),
-          lineHeight: `${Math.round(lineHeightPx)}px`,
-        };
+
+      // Only keep fonts used in the app
+      if (APP_FONTS.includes(fontFamily)) {
+        const key = `${fontFamily}|${fontSize}|${fontWeight}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          const styleName = `${fontFamily} ${fontSize}px w${fontWeight}`;
+          typography[styleName] = {
+            fontFamily,
+            fontSize: `${fontSize}px`,
+            fontWeight: String(fontWeight),
+            lineHeight: `${Math.round(lineHeightPx)}px`,
+          };
+        }
       }
     }
     if (node.children) {
@@ -82,15 +105,15 @@ function extractTypography(file) {
 }
 
 function extractSpacing(file) {
-  const spacing = new Set();
+  const rawSpacing = new Set();
 
   function walk(node) {
     if (node.layoutMode) {
-      if (node.paddingLeft) spacing.add(node.paddingLeft);
-      if (node.paddingRight) spacing.add(node.paddingRight);
-      if (node.paddingTop) spacing.add(node.paddingTop);
-      if (node.paddingBottom) spacing.add(node.paddingBottom);
-      if (node.itemSpacing) spacing.add(node.itemSpacing);
+      if (node.paddingLeft) rawSpacing.add(node.paddingLeft);
+      if (node.paddingRight) rawSpacing.add(node.paddingRight);
+      if (node.paddingTop) rawSpacing.add(node.paddingTop);
+      if (node.paddingBottom) rawSpacing.add(node.paddingBottom);
+      if (node.itemSpacing) rawSpacing.add(node.itemSpacing);
     }
     if (node.children) {
       for (const child of node.children) walk(child);
@@ -99,9 +122,21 @@ function extractSpacing(file) {
 
   walk(file.document);
 
-  const sorted = [...spacing].filter((v) => v > 0).sort((a, b) => a - b);
+  // Map raw values to nearest standard spacing
   const tokens = {};
-  const labels = ["xs", "sm", "md", "lg", "xl", "2xl"];
+  const usedStandards = new Set();
+
+  for (const raw of rawSpacing) {
+    if (raw <= 0) continue;
+    // Find nearest standard spacing value
+    const nearest = STANDARD_SPACING.reduce((prev, curr) =>
+      Math.abs(curr - raw) < Math.abs(prev - raw) ? curr : prev
+    );
+    usedStandards.add(nearest);
+  }
+
+  const labels = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"];
+  const sorted = [...usedStandards].sort((a, b) => a - b);
 
   sorted.forEach((value, i) => {
     const label = labels[i] || `${value}px`;
