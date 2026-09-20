@@ -39,16 +39,46 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - MUI (Material UI) also installed as dependency
 - Google Fonts: Squada One, Source Sans Pro, Be Vietnam Pro
 
-## Figma Sync Workflow (sin suscripción)
+## Figma Sync Workflow
 
-No hay sincronización automática sin plan pago de Figma. Para actualizar el demo manualmente:
+Design source of truth lives in `design/` and `DESIGN.md`.
 
-1. **Re-exportar desde Figma Make**: Abrir el archivo en Figma Make → botón "Export" → genera código React + assets nuevos.
-2. **Método con MCP Figma** (ya disponible en este entorno):
-   - Ejecutar `figma_get_design_context(fileKey, nodeId)` para obtener el código de referencia de cualquier nodo del diseño.
-   - Usar el código + screenshot como guía para actualizar componentes manualmente.
-3. **Post-export workflow**:
-   - Copiar los assets nuevos a `src/assets/` (los imports `figma:asset/*` resuelven allí).
-   - Revisar `git diff` para identificar qué cambió vs. la versión anterior.
-   - Actualizar solo los componentes afectados, sin sobrescribir modificaciones manuales del prototipo (navegación, estado, MobileFrame layout, etc.).
-   - Correr `pnpm build` para verificar que no hay errores.
+**Figma file:** https://www.figma.com/design/WcJoDbYzpm1VH84NmKn8kQ/RockTicket-App
+
+### Updating design tokens (colors, typography, spacing)
+
+1. Export from Figma REST API:
+   ```bash
+   $env:FIGMA_TOKEN="figd_xxx"; $env:FIGMA_FILE_KEY="WcJoDbYzpm1VH84NmKn8kQ"; node scripts/export-figma-tokens.mjs
+   ```
+2. Review: `git diff design/tokens.json`
+3. Update `src/styles/theme.css` if CSS variables changed
+4. Test in browser
+
+### Updating components
+
+1. Document changes in `DESIGN.md` (Components section)
+2. Update component code in `src/features/` or `src/shared/`
+3. Commit both DESIGN.md and code changes
+
+### Adding new screens
+
+1. Export from Figma Make (if available)
+2. Copy assets to `src/assets/`
+3. Add screen entry to `DESIGN.md` (Screens table)
+4. Implement in `src/features/`
+
+### Figma Make export (existing method)
+
+1. Re-exportar desde Figma Make: Abrir el archivo → botón "Export" → genera código React + assets.
+2. Copiar los assets nuevos a `src/assets/` (los imports `figma:asset/*` resuelven allí).
+3. Revisar `git diff` para identificar qué cambió vs. la versión anterior.
+4. Actualizar solo los componentes afectados, sin sobrescribir modificaciones manuales.
+5. Correr `pnpm build` para verificar que no hay errores.
+
+### Important
+
+- `design/tokens.json` is the source of truth for colors, typography, spacing
+- `DESIGN.md` is the living documentation for components and layout
+- `src/styles/theme.css` must stay in sync with `design/tokens.json`
+- Minimize Figma API calls (free plan = limited MCP, unlimited REST with PAT)
