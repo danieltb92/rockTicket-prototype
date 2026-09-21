@@ -12,54 +12,93 @@ Living documentation of the rockTicket design. Update this file when designs cha
 - **Body Font:** Source Sans Pro
 - **UI Font:** Inter (status bar, card titles)
 
-## Colors (from Figma Styles)
+## Colors
 
-### Primary (Gulf Blue)
+### Global — Primary (Gulf Blue)
+| Token | Hex |
+|-------|-----|
+| 900 | `#27288F` |
+| 800 | `#3033AE` |
+| 700 | `#3B42D3` |
+| 600 | `#4D60D8` |
+| 500 | `#697FDF` |
+| 200 | `#D9DFF7` |
+
+### Global — Secundary (Teal)
+| Token | Hex |
+|-------|-----|
+| 999 | `#000B0B` |
+| 950 | `#002E2D` |
+| 900 | `#00504F` |
+| 800 | `#006160` |
+| 700 | `#007E7C` |
+| 600 | `#009E9B` |
+| 500 | `#00CDC8` |
+| 400 | `#00DCD7` |
+| 300 | `#00EEE9` |
+| 200 | `#41FFFB` |
+| 100 | `#B6FFFC` |
+| 50 | `#E1FFFD` |
+| 1 | `#F0FFFE` |
+
+### Tokens — Primary
 | Token | Hex | Usage |
 |-------|-----|-------|
-| Primary/500 | `#57578a` | Primary actions |
-| Primary/700 | `#292952` | Darker variant, tooltips |
-| Primary/900 | `#141454` | Darkest variant |
-| Primary/300 | `#9494bc` | Lighter variant |
-| Primary/100 | `#c7c7df` | Lightest variant |
+| 900 | `#141454` | Darkest variant |
+| 700 | `#292952` | Darker variant, tooltips |
+| 500 | `#57578A` | Primary actions |
+| 300 | `#9494BC` | Lighter variant |
+| 100 | `#C7C7DF` | Lightest variant |
 
-### Secondary (Teal)
+### Tokens — Secundary
 | Token | Hex | Usage |
 |-------|-----|-------|
-| Secondary/900 | `#007e7c` | Main accent, CTAs, tags |
-| Secondary/600 | `#4faaa8` | Medium teal |
-| Secondary/300 | `#93c9c7` | Light teal |
-| Secondary/100 | `#d1e3e3` | Lightest teal |
+| 3 | `#001D1D` | Darkest teal |
+| 2 | `#013333` | Dark teal |
+| 1 | `#00504E` | Medium-dark teal |
+| 900 | `#007E7C` | Main accent, CTAs, tags |
+| 600 | `#4FAAA8` | Medium teal |
+| 300 | `#93C9C7` | Light teal |
+| 100 | `#D1E3E3` | Lightest teal |
 
-### Neutrals (Alabaster)
+### Tokens — Neutrals
 | Token | Hex | Usage |
 |-------|-----|-------|
-| White | `#ffffff` | Text on dark, backgrounds |
-| 200 | `#e5e5e5` | Secondary text |
-| 300 | `#cccccc` | Borders, dividers |
+| White | `#FFFFFF` | Text on dark, backgrounds |
+| 200 | `#E5E5E5` | Secondary text |
+| 300 | `#CCCCCC` | Borders, dividers |
 | 500 | `#999999` | Muted text |
 | 700 | `#666666` | Card titles |
 | 800 | `#333333` | Body text on light |
 | 900 | `#000000` | Background, primary text |
 
-### Semantic Colors
+### Semantic
 | Token | Hex | Usage |
 |-------|-----|-------|
 | Background | `#090909` | Page background |
 | Background Dark | `#040404` | Darker background |
 | Border | `#272727` | Dividers, borders |
 | Destructive | `#d4183d` | Errors, delete |
+| Gradient/Image | `linear-gradient(#000000CC 0%, #00000000 100%)` | Image overlay |
 
 ## Typography
 
 ### Headings (Squada One)
-| Style | Size | Weight | Line Height |
-|-------|------|--------|-------------|
-| H1 | 40px | 400 | 50px |
-| H2 | 32px | 400 | 40px |
-| H3 | 24px | 400 | 30px |
-| H4 | 18px | 400 | 23px |
-| H5 | 14px | 400 | 18px |
+| Style | Size | Weight | Line Height | Tracking |
+|-------|------|--------|-------------|----------|
+| H1 | 40px | 400 | 125% | 5% |
+| H2 | 32px | 400 | 125% | 5% |
+| H3 | 24px | 400 | 125% | 3% |
+| H4 | 18px | 400 | 125% | 5% |
+| H5 | 14px | 400 | 125% | 10% |
+
+### Title (Source Sans Pro Bold)
+| Style | Size | Weight | Line Height | Tracking |
+|-------|------|--------|-------------|----------|
+| Title/h1 | 60px | 700 | 30px | 3% |
+| Title/h2 | 40px | 700 | 30px | 3% |
+| Title/h3 | 30px | 700 | 30px | 3% |
+| Title/h4 | 24px | 700 | 30px | 3% |
 
 ### Body (Source Sans Pro)
 | Style | Size | Weight | Line Height |
@@ -71,25 +110,54 @@ Living documentation of the rockTicket design. Update this file when designs cha
 | Regular 12px | 12px | 400 | 20px |
 | Light 12px | 12px | 300 | 20px |
 
+### UI (Source Sans Pro)
+| Style | Size | Weight | Line Height |
+|-------|------|--------|-------------|
+| Label | 12px | 400 | auto |
+| Button/Large | 18px | 700 | 24px |
+| Button/Medium | 16px | 600 | 14px |
+| Button/Small | 14px | 400 | 20px |
+
+### Logo
+| Style | Font | Size |
+|-------|------|------|
+| Logo/H1 | Libre Barcode 128 Text | 40px |
+
 ## Spacing
 
 | Token | Value |
 |-------|-------|
-| xs | 4px |
-| sm | 8px |
-| md | 16px |
-| lg | 24px |
-| xl | 32px |
+| 0 | 0px |
+| 1 | 4px |
+| 2 | 8px |
+| 3 | 12px |
+| 4 | 16px |
+| 5 | 20px |
+| 6 | 24px |
+| 8 | 32px |
+| 10 | 40px |
+| 12 | 48px |
+| 16 | 64px |
+
+### Layout
+| Token | Value |
+|-------|-------|
+| container/padding-mobile | 16px |
+| container/padding-desktop | 32px |
+| grid/columns | 4 |
+| grid/gutter | 16px |
 
 ## Border Radius
 
 | Token | Value |
 |-------|-------|
-| sm | 4px |
-| md | 6px |
-| lg | 8px |
-| xl | 12px |
-| full | 9999px |
+| none | 0px |
+| xs | 4px |
+| sm | 6px |
+| md | 8px |
+| lg | 12px |
+| xl | 16px |
+| full | 999px |
 
 ## Components
 
@@ -149,9 +217,36 @@ Living documentation of the rockTicket design. Update this file when designs cha
 | Tickets | Implemented | Mockups > Tickets |
 | Notifications | Implemented | Mockups > Notifications |
 
+## Component Families
+- Header
+- Main
+- NavBar
+- Bottom Sheet Layer
+- Summary Tickets
+- Search
+- Profile
+- Safe Payment
+- Payment Method
+- Checkout
+- Successful Payment
+- Selection Section
+- Detail Selection
+- Venue
+- Home
+- Explore-filters
+- Event Detail Page
+- Local Artist Page
+- Start
+- Wellcome
+- Intro
+- Chosee Genre
+- Location & Alerts
+- AuthLogin
+
 ## Changelog
 
 | Date | Change |
 |------|--------|
 | 2026-09-20 | Initial design system from Figma |
-| 2026-09-20 | Updated with accurate Figma style values |
+| 2026-09-21 | Merged plugin tokens: Global (primary gulf blue, secondary teal full scales), Tokens (primary, secundary, neutrals), Title/UI typography, spacing 0-16, radius 0-full, layout tokens |
+
