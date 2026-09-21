@@ -12,62 +12,64 @@ Living documentation of the rockTicket design. Update this file when designs cha
 - **Body Font:** Source Sans Pro
 - **UI Font:** Inter (status bar, card titles)
 
-## Colors
+## Colors (from Figma Styles)
 
+### Primary (Gulf Blue)
 | Token | Hex | Usage |
 |-------|-----|-------|
-| Primary | `#007e7c` | CTAs, active states, tags |
-| Primary Dark | `#13505b` | Darker variant |
-| Secondary | `#0c7489` | Secondary actions |
-| Accent | `#119da4` | Highlights, links |
-| Background Dark | `#040404` | Page background (dark mode) |
-| Background Light | `#ffffff` | Page background (light mode) |
-| Text Primary | `#ffffff` | Primary text on dark |
-| Text Secondary | `#e5e5e5` | Secondary text on dark |
-| Text Muted | `#999999` | Muted text, placeholders |
-| Text Dark | `#333333` | Primary text on light |
-| Card Title | `#666666` | Card title text |
+| Primary/500 | `#57578a` | Primary actions |
+| Primary/700 | `#292952` | Darker variant, tooltips |
+| Primary/900 | `#141454` | Darkest variant |
+| Primary/300 | `#9494bc` | Lighter variant |
+| Primary/100 | `#c7c7df` | Lightest variant |
+
+### Secondary (Teal)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| Secondary/900 | `#007e7c` | Main accent, CTAs, tags |
+| Secondary/600 | `#4faaa8` | Medium teal |
+| Secondary/300 | `#93c9c7` | Light teal |
+| Secondary/100 | `#d1e3e3` | Lightest teal |
+
+### Neutrals (Alabaster)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| White | `#ffffff` | Text on dark, backgrounds |
+| 200 | `#e5e5e5` | Secondary text |
+| 300 | `#cccccc` | Borders, dividers |
+| 500 | `#999999` | Muted text |
+| 700 | `#666666` | Card titles |
+| 800 | `#333333` | Body text on light |
+| 900 | `#000000` | Background, primary text |
+
+### Semantic Colors
+| Token | Hex | Usage |
+|-------|-----|-------|
+| Background | `#090909` | Page background |
+| Background Dark | `#040404` | Darker background |
 | Border | `#272727` | Dividers, borders |
-| Tag | `#007e7c` | Tag backgrounds |
-| Destructive | `#d4183d` | Errors, delete actions |
-| Muted | `#ececf0` | Muted backgrounds |
-| Input Background | `#f3f3f5` | Input field backgrounds |
-
-### Original Palette (Coolors)
-
-Exported from: https://coolors.co/119da4-0c7489-13505b-040404-d7d9ce
+| Destructive | `#d4183d` | Errors, delete |
 
 ## Typography
 
 ### Headings (Squada One)
-
-| Style | Size | Weight | Usage |
-|-------|------|--------|-------|
-| Heading LG | 32px | 400 | Hero headings |
-| Heading Display | 24px | 400 | Screen titles |
-| Heading SM | 18px | 400 | Section headings |
+| Style | Size | Weight | Line Height |
+|-------|------|--------|-------------|
+| H1 | 40px | 400 | 50px |
+| H2 | 32px | 400 | 40px |
+| H3 | 24px | 400 | 30px |
+| H4 | 18px | 400 | 23px |
+| H5 | 14px | 400 | 18px |
 
 ### Body (Source Sans Pro)
-
-| Style | Size | Weight | Usage |
-|-------|------|--------|-------|
-| Body LG | 18px | 700 | Emphasized body |
-| Body | 14px | 400 | Regular body text |
-| Body Semibold | 14px | 400 | Strong body text |
-| Label | 14px | 400 | Form labels |
-| Label Bold | 13.5px | 700 | Bold labels |
-| Caption | 12px | 400 | Small text, metadata |
-| Caption Semibold | 12px | 600 | Strong captions |
-| Tag | 10px | 600 | Tag labels |
-
-### UI (Inter)
-
-| Style | Size | Weight | Usage |
-|-------|------|--------|-------|
-| UI Title | 14px | 600 | Card titles |
-| UI Subtitle | 12px | 500 | Subtitles |
-| UI Body | 14px | 400 | UI body text |
-| Status Bar | 14px | 700 | Status bar time |
+| Style | Size | Weight | Line Height |
+|-------|------|--------|-------------|
+| Regular 16px | 16px | 400 | 20px |
+| Light 16px | 16px | 300 | 20px |
+| Regular 14px | 14px | 400 | 20px |
+| Light 14px | 14px | 300 | 20px |
+| Regular 12px | 12px | 400 | 20px |
+| Light 12px | 12px | 300 | 20px |
 
 ## Spacing
 
@@ -83,13 +85,11 @@ Exported from: https://coolors.co/119da4-0c7489-13505b-040404-d7d9ce
 
 | Token | Value |
 |-------|-------|
-| sm | 0.375rem |
-| md | 0.5rem |
-| lg | 0.625rem |
-| xl | 0.75rem |
-| card | 12px |
-| button | 8px |
-| modal | 16px |
+| sm | 4px |
+| md | 6px |
+| lg | 8px |
+| xl | 12px |
+| full | 9999px |
 
 ## Components
 
@@ -103,23 +103,24 @@ Exported from: https://coolors.co/119da4-0c7489-13505b-040404-d7d9ce
 - **Height:** 64px
 - **Background:** #000000
 - **Icons:** 24px
-- **Active color:** Primary (#007e7c)
-- **Inactive color:** Text Muted (#999999)
+- **Active color:** Secondary/900 (#007e7c)
+- **Inactive color:** Neutrals/500 (#999999)
 
 ### Button
 - **Height:** 48px
-- **Border radius:** 8px
-- **Font:** Source Sans Pro, 16px, 600
+- **Border radius:** 6px
+- **Font:** Source Sans Pro, 16px, 700
 - **Padding:** 0 24px
+- **Background:** Secondary/900 (#007e7c)
 
 ### Tag
-- **Background:** Primary (#007e7c)
-- **Font:** Source Sans Pro, 10px, 600
+- **Background:** Secondary/900 (#007e7c)
+- **Font:** Source Sans Pro, 10px, 700
 - **Color:** #ffffff
 - **Border radius:** 4px
 
 ### Tooltip
-- **Background:** #292952
+- **Background:** Primary/700 (#292952)
 - **Font:** Source Sans Pro, 16px, 400
 - **Color:** #ffffff
 - **Border radius:** 8px
@@ -152,4 +153,5 @@ Exported from: https://coolors.co/119da4-0c7489-13505b-040404-d7d9ce
 
 | Date | Change |
 |------|--------|
-| 2026-09-20 | Initial design system documentation from Figma file |
+| 2026-09-20 | Initial design system from Figma |
+| 2026-09-20 | Updated with accurate Figma style values |
