@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "ladle": "ladle serve"
+    "ladle": "ladle serve --port 3000"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
