@@ -12,18 +12,18 @@ export function MajorEventsSection({
     <div className="flex flex-col gap-[16px] items-start pt-[40px] w-full">
       <div className="flex items-start justify-between px-[24px] w-full">
         <div>
-          <p
-            className="leading-[30px] text-[40px] text-white tracking-[-0.6px] uppercase"
+          <h1
+            className="leading-[30px] text-[40px] text-white tracking-[-0.6px]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Major Upcoming
-          </p>
-          <p
-            className="leading-[30px] text-[40px] text-white tracking-[-0.6px] uppercase"
+          </h1>
+          <h2
+            className="leading-[30px] text-[40px] text-white tracking-[-0.6px]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Events
-          </p>
+          </h2>
         </div>
         <button className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity pt-[4px]">
           <p
@@ -46,7 +46,7 @@ export function MajorEventsSection({
             tag="SELLING FAST"
             tagVariant="teal"
             date="AUG 24  . OLYMPIC STADIUM"
-            title="IRON MAIDEN:"
+            title="Iron Maiden:"
             subtitle="World Slavery Tour"
           />
           <EventCard
