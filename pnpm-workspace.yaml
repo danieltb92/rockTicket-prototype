@@ -1,7 +1,9 @@
 packages:
   - '.'
 allowBuilds:
+  '@swc/core': true
   '@tailwindcss/oxide': true
   esbuild: true
+  msw: true
 overrides:
   vite: "6.3.5"

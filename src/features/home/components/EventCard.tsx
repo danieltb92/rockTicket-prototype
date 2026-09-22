@@ -75,14 +75,14 @@ export function EventCard({
             {date}
           </p>
           <p
-            className="leading-[0.9] text-[30px] text-white tracking-[1.5px] uppercase"
+            className="leading-[0.9] text-[30px] text-white tracking-[1.5px]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {title}
           </p>
           {subtitle && (
             <p
-              className="leading-[0.9] text-[24px] text-white tracking-[0.72px] uppercase mt-[4px]"
+              className="leading-[0.9] text-[24px] text-white tracking-[0.72px] mt-[4px]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {subtitle}

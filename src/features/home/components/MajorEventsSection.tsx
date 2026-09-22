@@ -41,6 +41,14 @@ export function MajorEventsSection({
       </div>
       <div className="overflow-x-auto overflow-y-clip w-full scrollbar-none">
         <div className="flex gap-[16px] items-center px-[24px] pb-[4px]">
+           <EventCard
+            img={imgCard1}
+            tag="Sold Out"
+            tagVariant="dark"
+            date="AUG 30  . movistar arena"
+            title="The Midnight Echoes"
+            onClick={onEventClick}
+          />
           <EventCard
             img={imgCard}
             tag="SELLING FAST"
@@ -50,20 +58,12 @@ export function MajorEventsSection({
             subtitle="World Slavery Tour"
           />
           <EventCard
-            img={imgCard1}
-            tag="Sold Out"
-            tagVariant="dark"
-            date="AUG 30  . movistar arena"
-            title="The midnight echoes"
-            onClick={onEventClick}
-          />
-          <EventCard
             img={imgCard2}
             tag="Last Tickets"
             tagVariant="last"
-            date="OCT 30  . mEDPLUS COLISEO"
-            title="tOOL:"
-            subtitle="WORLD TOUR"
+            date="OCT 30  . MEDPLUS COLISEO"
+            title="Tool:"
+            subtitle="World Tour"
           />
         </div>
       </div>
