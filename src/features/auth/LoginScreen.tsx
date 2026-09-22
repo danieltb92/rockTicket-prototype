@@ -9,7 +9,7 @@ export function LoginScreen({
   onBack: () => void;
 }) {
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       <div className="relative flex flex-col h-full">
         <StatusBar />
 
@@ -34,15 +34,15 @@ export function LoginScreen({
           <div className="flex flex-col items-center gap-[16px] mb-[60px]">
             <p
               className="leading-[1.1] text-[44px] text-white text-center uppercase"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               INICIAR
               <br />
               SESIÓN.
             </p>
             <p
-              className="leading-[24px] text-[16px] text-[rgba(255,255,255,0.7)] text-center"
-              style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+              className="leading-[24px] text-[16px] text-white/70 text-center"
+              style={{ fontFamily: "var(--font-body)" }}
             >
               Elige cómo quieres continuar
             </p>
@@ -79,7 +79,7 @@ export function LoginScreen({
               <p
                 className="leading-[24px] text-[16px] text-[#3c4043]"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 600,
                 }}
               >
@@ -99,7 +99,7 @@ export function LoginScreen({
               <p
                 className="leading-[24px] text-[16px] text-white"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 600,
                 }}
               >

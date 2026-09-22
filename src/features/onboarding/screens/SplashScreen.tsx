@@ -10,7 +10,7 @@ export function SplashScreen({ onNext }: { onNext: () => void }) {
   return (
     <div
       onClick={onNext}
-      className="bg-[#090909] flex flex-col h-full items-center justify-center relative w-full cursor-pointer"
+      className="bg-background flex flex-col h-full items-center justify-center relative w-full cursor-pointer"
     >
       <img src={logoSvg} alt="RockTicket" className="w-[225px] h-[96px]" />
     </div>

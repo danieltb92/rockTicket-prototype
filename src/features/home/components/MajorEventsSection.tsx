@@ -14,22 +14,22 @@ export function MajorEventsSection({
         <div>
           <p
             className="leading-[30px] text-[40px] text-white tracking-[-0.6px] uppercase"
-            style={{ fontFamily: "'Squada One', sans-serif" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Major Upcoming
           </p>
           <p
             className="leading-[30px] text-[40px] text-white tracking-[-0.6px] uppercase"
-            style={{ fontFamily: "'Squada One', sans-serif" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Events
           </p>
         </div>
         <button className="cursor-pointer opacity-80 hover:opacity-100 transition-opacity pt-[4px]">
           <p
-            className="leading-[16px] text-[#b6fffc] text-[14px] tracking-[1.2px] uppercase text-right"
+            className="leading-[16px] text-teal-100 text-[14px] tracking-[1.2px] uppercase text-right"
             style={{
-              fontFamily: "'Source Sans Pro', sans-serif",
+              fontFamily: "var(--font-body)",
               fontWeight: 700,
             }}
           >

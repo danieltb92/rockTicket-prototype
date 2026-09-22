@@ -8,6 +8,12 @@ const CATEGORIES = [
   "Alternative",
 ];
 
+/**
+ * Category filter chips.
+ * Colors from Figma tokens:
+ *   Active:   gulf 950 bg, white text
+ *   Inactive: gulf 50 bg, dark text
+ */
 export function CategoryChips({
   active,
   onSelect,
@@ -24,13 +30,14 @@ export function CategoryChips({
             onClick={() => onSelect(c)}
             className="flex gap-[4px] items-center px-[12px] py-[8px] rounded-[10px] shrink-0 cursor-pointer transition-colors"
             style={{
-              backgroundColor: active === c ? "#141454" : "#f6f7fd",
+              backgroundColor:
+                active === c ? "var(--color-gulf-950)" : "var(--color-gulf-50)",
             }}
           >
             <p
               className="leading-[24px] text-[14px] tracking-[-0.14px] whitespace-nowrap"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 color: active === c ? "white" : "#2d3648",
               }}
             >

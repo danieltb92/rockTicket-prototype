@@ -249,4 +249,5 @@ Living documentation of the rockTicket design. Update this file when designs cha
 |------|--------|
 | 2026-09-20 | Initial design system from Figma |
 | 2026-09-21 | Merged plugin tokens: Global (primary gulf blue, secondary teal full scales), Tokens (primary, secundary, neutrals), Title/UI typography, spacing 0-16, radius 0-full, layout tokens |
+| 2026-09-21 | Rewrote `theme.css` with all Figma tokens as CSS variables. Updated all components (Button, Badge, Card, BottomNav, EventCard, ArtistCard, VenueCard, CategoryChips, section headers) and screens (Home, EventDetail, Artist, Profile, Onboarding x6, Login) to use CSS variables instead of hardcoded hex values. Fixed StatusBar background (inline style for `--background-dark` due to Tailwind v4 hyphenated variable gotcha). Build verified passing. |
 

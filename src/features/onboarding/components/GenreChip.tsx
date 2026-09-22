@@ -12,18 +12,18 @@ export function GenreChip({
       onClick={onClick}
       className="px-[16px] py-[8px] rounded-full cursor-pointer transition-all duration-200"
       style={{
-        backgroundColor: selected ? "#141454" : "rgba(255,255,255,0.1)",
+        backgroundColor: selected ? "var(--color-gulf-950)" : "white/10",
         border: selected
-          ? "1px solid #697fdf"
-          : "1px solid rgba(255,255,255,0.2)",
+          ? "1px solid var(--color-gulf-500)"
+          : "1px solid white/20",
       }}
     >
       <p
         className="text-[14px] whitespace-nowrap"
         style={{
-          fontFamily: "'Source Sans Pro', sans-serif",
+          fontFamily: "var(--font-body)",
           fontWeight: 600,
-          color: selected ? "white" : "rgba(255,255,255,0.7)",
+          color: selected ? "white" : "white/70",
         }}
       >
         {label}

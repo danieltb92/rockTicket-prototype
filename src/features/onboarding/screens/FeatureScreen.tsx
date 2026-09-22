@@ -4,13 +4,13 @@ import featureBg from "@/imports/onboarding/feature-bg.svg";
 
 export function FeatureScreen({ onNext }: { onNext: () => void }) {
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       {/* Background gradient */}
       <div
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #090909 100%)",
+            "linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, var(--background) 100%)",
         }}
       />
 
@@ -29,7 +29,7 @@ export function FeatureScreen({ onNext }: { onNext: () => void }) {
           <div className="flex flex-col items-start gap-[16px] mb-[40px]">
             <p
               className="leading-[54px] text-[60px] text-white text-start uppercase"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               NO TE
               <br />
@@ -38,8 +38,8 @@ export function FeatureScreen({ onNext }: { onNext: () => void }) {
               NADA.
             </p>
             <p
-              className="leading-[30px] text-[24px] text-[rgba(255,255,255,0.7)] text-start"
-              style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+              className="leading-[30px] text-[24px] text-white/70 text-start"
+              style={{ fontFamily: "var(--font-body)" }}
             >
               Aquí encontrarás los mejores
               <br />
@@ -60,7 +60,7 @@ export function FeatureScreen({ onNext }: { onNext: () => void }) {
             <p
               className="leading-[24px] text-[18px] text-white"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >

@@ -32,12 +32,15 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - **Dev reset**: Ctrl+Shift+R or the floating "Reset" button clears all state and reloads.
 - **No `src/assets/` directory exists yet** — Figma asset imports will fail until assets are placed there.
 - **Sin scroll vertical**: El prototipo debe verse completo en una sola pantalla. MobileFrame escala el teléfono para que quepa junto al footer sin scroll. No usar `position: fixed` ni `absolute` fuera del viewport del teléfono.
+- **Tailwind v4 CSS variable gotcha**: CSS variables with hyphens (e.g. `--background-dark`) **cannot** be used as Tailwind utility classes (`bg-background-dark` compiles to nothing). Use inline `style={{ backgroundColor: "var(--background-dark)" }}` or hardcoded hex instead. Variables without hyphens (`--background`, `--foreground`) work fine as `bg-background`, `text-foreground`.
+- **StatusBar background**: Uses inline `style={{ backgroundColor: "#040404" }}` for this reason. Do not replace with Tailwind class.
 
 ## UI Stack
 
 - shadcn/ui components in `src/app/components/ui/`
 - MUI (Material UI) also installed as dependency
 - Google Fonts: Squada One, Source Sans Pro, Be Vietnam Pro
+- **Design tokens**: All colors, fonts, spacing defined as CSS variables in `src/styles/theme.css` (synced with `design/design-tokens.tokens.json` from Figma). Components reference these via `var(--color-*)`, `var(--font-heading)`, etc.
 
 ## Figma Sync Workflow
 

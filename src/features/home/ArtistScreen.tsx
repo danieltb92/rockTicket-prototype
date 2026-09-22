@@ -9,7 +9,7 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
   const [following, setFollowing] = useState(false);
 
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       {/* Floating header */}
       <div className="absolute top-0 left-0 right-0 z-10">
         <StatusBar />
@@ -65,11 +65,11 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             }}
           />
           <div className="absolute bottom-0 left-0 p-[24px] w-full flex flex-col gap-[20px]">
-            <div className="bg-[#141454] flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px] w-fit">
+            <div className="bg-gulf-950 flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px] w-fit">
               <p
                 className="leading-[20px] text-[10px] text-white tracking-[0.4px] uppercase whitespace-nowrap"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -79,35 +79,35 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             <div>
               <p
                 className="leading-[60px] text-[60px] text-white uppercase"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 The Midnight
               </p>
               <p
                 className="leading-[60px] text-[60px] text-white uppercase"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 Echoes
               </p>
             </div>
             <div className="flex gap-[12px] items-center">
               <p
-                className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.7)] whitespace-nowrap"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[20px] text-[14px] text-white/70 whitespace-nowrap"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 Hard Rock
               </p>
-              <div className="bg-[#007e7c] rounded-[9999px] size-[4px]" />
+              <div className="bg-teal-700 rounded-[9999px] size-[4px]" />
               <p
-                className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.7)] whitespace-nowrap"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[20px] text-[14px] text-white/70 whitespace-nowrap"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 London, UK
               </p>
-              <div className="bg-[#007e7c] rounded-[9999px] size-[4px]" />
+              <div className="bg-teal-700 rounded-[9999px] size-[4px]" />
               <p
-                className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.7)] whitespace-nowrap"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[20px] text-[14px] text-white/70 whitespace-nowrap"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 12.5K Followers
               </p>
@@ -121,7 +121,7 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             onClick={() => setFollowing(!following)}
             className="flex gap-[12px] items-center justify-center px-[24px] py-[16px] rounded-[6px] w-[256px] cursor-pointer transition-colors"
             style={{
-              backgroundColor: following ? "#005d5b" : "#007e7c",
+              backgroundColor: following ? "#005d5b" : "var(--color-teal-700)",
             }}
           >
             <svg
@@ -139,14 +139,14 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             <p
               className="leading-[24px] text-[18px] text-white whitespace-nowrap"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >
               {following ? "FOLLOWING ✓" : "FOLLOW ARTIST"}
             </p>
           </button>
-          <button className="bg-[#141454] flex items-center justify-center p-[16px] rounded-[6px] cursor-pointer hover:bg-[#1e1e70] transition-colors">
+          <button className="bg-gulf-950 flex items-center justify-center p-[16px] rounded-[6px] cursor-pointer hover:bg-gulf-900 transition-colors">
             <svg
               className="size-[24px]"
               fill="none"
@@ -251,7 +251,7 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                 </div>
                 <p
                   className="text-[10px] text-white text-center tracking-[0.3px] whitespace-nowrap"
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  style={{ fontFamily: "var(--font-body)" }}
                 >
                   {social}
                 </p>
@@ -263,9 +263,9 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             style={{ borderBottom: "2px solid rgba(0,126,124,0.5)" }}
           >
             <p
-              className="leading-[15px] text-[#007e7c] text-[10px] tracking-[1px] uppercase"
+              className="leading-[15px] text-teal-700 text-[10px] tracking-[1px] uppercase"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >
@@ -279,15 +279,15 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
           <div className="flex gap-[12px] items-center w-full">
             <p
               className="leading-[36px] text-[30px] text-white tracking-[1.5px] uppercase whitespace-nowrap"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               The Story
             </p>
-            <div className="bg-[#272727] flex-1 h-px" />
+            <div className="bg-zinc-800 flex-1 h-px" />
           </div>
           <p
-            className="leading-[26px] text-[16px] text-[rgba(255,255,255,0.6)]"
-            style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+            className="leading-[26px] text-[16px] text-white/60"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             Blending gritty guitar riffs with soulful melodies since 2018,{" "}
             <span className="text-white">The Midnight Echoes</span> are a
@@ -302,11 +302,11 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
           <div className="flex gap-[12px] items-center w-full">
             <p
               className="leading-[36px] text-[30px] text-white tracking-[1.5px] uppercase whitespace-nowrap"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Greatest Hits
             </p>
-            <div className="bg-[#272727] flex-1 h-px" />
+            <div className="bg-zinc-800 flex-1 h-px" />
           </div>
           <div className="flex flex-col gap-[12px] w-full">
             {[
@@ -325,8 +325,8 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             ].map(({ num, title, streams, img }) => (
               <div key={num} className="flex gap-[16px] items-center p-[13px]">
                 <p
-                  className="leading-[32px] text-[24px] text-[#002e2d] w-[24px] shrink-0"
-                  style={{ fontFamily: "'Squada One', sans-serif" }}
+                  className="leading-[32px] text-[24px] text-teal-950 w-[24px] shrink-0"
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {num}
                 </p>
@@ -349,20 +349,20 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                   <p
                     className="leading-[20px] text-[14px] text-white tracking-[-0.35px]"
                     style={{
-                      fontFamily: "'Source Sans Pro', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontWeight: 700,
                     }}
                   >
                     {title}
                   </p>
                   <p
-                    className="leading-[16px] text-[12px] text-[rgba(255,255,255,0.4)]"
-                    style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                    className="leading-[16px] text-[12px] text-white/40"
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
                     {streams}
                   </p>
                 </div>
-                <button className="bg-[#000b0b] flex items-center justify-center rounded-[9999px] size-[40px] cursor-pointer hover:bg-[#001a1a] transition-colors shrink-0">
+                <button className="bg-teal-999 flex items-center justify-center rounded-[9999px] size-[40px] cursor-pointer hover:bg-teal-950 transition-colors shrink-0">
                   <svg
                     className="h-[14px] w-[11px]"
                     fill="none"
@@ -370,7 +370,7 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                   >
                     <path
                       d="M0 14V0L11 7L0 14V14"
-                      fill="#007E7C"
+                      fill="var(--color-teal-700)"
                     />
                   </svg>
                 </button>
@@ -384,11 +384,11 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
           <div className="flex gap-[12px] items-center w-full">
             <p
               className="leading-[36px] text-[30px] text-white tracking-[1.5px] uppercase whitespace-nowrap"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Live on Stage
             </p>
-            <div className="bg-[#272727] flex-1 h-px" />
+            <div className="bg-zinc-800 flex-1 h-px" />
           </div>
           <div className="flex flex-col gap-[16px] w-full">
             {[
@@ -416,17 +416,17 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
             ].map(({ month, day, venue, loc, soldOut }, i) => (
               <div
                 key={i}
-                className="bg-[#090909] relative rounded-[8px] w-full"
+                className="bg-background relative rounded-[8px] w-full"
                 style={{
-                  border: "2px solid #181818",
+                  border: "2px solid var(--color-zinc-900)",
                   opacity: soldOut ? 0.3 : 1,
                 }}
               >
                 <div className="flex items-center gap-[16px] p-[12px]">
-                  <div className="bg-[#9aadf4] flex items-center justify-center px-[16px] py-[12px] rounded-[6px] shrink-0">
+                  <div className="bg-gulf-400 flex items-center justify-center px-[16px] py-[12px] rounded-[6px] shrink-0">
                     <div
                       className="text-center"
-                      style={{ fontFamily: "'Squada One', sans-serif" }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       <p className="leading-[16px] text-[18px] text-black">
                         {month}
@@ -440,15 +440,15 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                     <p
                       className="leading-[1.25] text-[16px] text-white tracking-[0.48px] whitespace-nowrap"
                       style={{
-                        fontFamily: "'Source Sans Pro', sans-serif",
+                        fontFamily: "var(--font-body)",
                         fontWeight: 700,
                       }}
                     >
                       {venue}
                     </p>
                     <p
-                      className="leading-[20px] text-[12px] text-[rgba(255,255,255,0.4)]"
-                      style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                      className="leading-[20px] text-[12px] text-white/40"
+                      style={{ fontFamily: "var(--font-body)" }}
                     >
                       {loc}
                     </p>
@@ -457,9 +457,9 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                     <div className="relative rounded-[6px]">
                       <div className="flex items-center justify-center p-[8px]">
                         <p
-                          className="leading-[20px] text-[#ebeffb] text-[14px]"
+                          className="leading-[20px] text-gulf-100 text-[14px]"
                           style={{
-                            fontFamily: "'Source Sans Pro', sans-serif",
+                            fontFamily: "var(--font-body)",
                             fontWeight: 700,
                           }}
                         >
@@ -468,15 +468,15 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
                       </div>
                       <div
                         className="absolute inset-0 pointer-events-none rounded-[6px]"
-                        style={{ border: "2px solid #ebeffb" }}
+                        style={{ border: "2px solid var(--color-gulf-100)" }}
                       />
                     </div>
                   ) : (
-                    <button className="bg-[#002e2d] flex gap-[8px] items-center justify-center p-[8px] rounded-[6px] cursor-pointer hover:bg-[#003d3b] transition-colors shrink-0">
+                    <button className="bg-teal-950 flex gap-[8px] items-center justify-center p-[8px] rounded-[6px] cursor-pointer hover:bg-teal-800 transition-colors shrink-0">
                       <p
                         className="leading-[20px] text-[14px] text-white whitespace-nowrap"
                         style={{
-                          fontFamily: "'Source Sans Pro', sans-serif",
+                          fontFamily: "var(--font-body)",
                           fontWeight: 700,
                         }}
                       >
@@ -504,12 +504,12 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
 
       {/* Bottom sticky nav */}
       <div
-        className="bg-black px-[24px] pb-[20px] pt-[21px] w-full flex-shrink-0"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
+        className="bg-zinc-black px-[24px] pb-[20px] pt-[21px] w-full flex-shrink-0"
+        style={{ borderTop: "1px solid white/10" }}
       >
         <div className="flex items-center justify-between w-full">
           <div className="flex gap-[12px] items-center">
-            <div className="bg-[#007e7c] flex items-center justify-center p-[12px] rounded-[6px]">
+            <div className="bg-teal-700 flex items-center justify-center p-[12px] rounded-[6px]">
               <svg
                 className="size-[20px]"
                 fill="none"
@@ -522,16 +522,16 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
               <p
                 className="text-[10px] text-white tracking-[0.5px] uppercase"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
                 Next Gig
               </p>
               <p
-                className="leading-[20px] text-[#007e7c] text-[12px]"
+                className="leading-[20px] text-teal-700 text-[12px]"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -539,11 +539,11 @@ export function ArtistScreen({ onBack }: { onBack: () => void }) {
               </p>
             </div>
           </div>
-          <button className="bg-white flex gap-[8px] items-center justify-center px-[24px] py-[16px] rounded-[6px] cursor-pointer hover:bg-gray-100 transition-colors">
+          <button className="bg-zinc-white flex gap-[8px] items-center justify-center px-[24px] py-[16px] rounded-[6px] cursor-pointer hover:bg-zinc-100 transition-colors">
             <p
-              className="leading-[24px] text-[18px] text-black whitespace-nowrap"
+              className="leading-[24px] text-[18px] text-zinc-black whitespace-nowrap"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >

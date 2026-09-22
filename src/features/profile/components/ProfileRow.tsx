@@ -15,7 +15,7 @@ export function ProfileRow({
       </div>
       <p
         className="flex-1 leading-[24px] text-[16px] text-white"
-        style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+        style={{ fontFamily: "var(--font-body)" }}
       >
         {label}
       </p>

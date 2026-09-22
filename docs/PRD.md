@@ -37,6 +37,7 @@ Navegación mediante hook personalizado `useNavigation` con transiciones CSS (si
 - Tailwind CSS v4 (vía `@tailwindcss/vite`, no PostCSS)
 - shadcn/ui + MUI (Material UI)
 - Google Fonts: Squada One, Source Sans Pro, Be Vietnam Pro
+- **Design tokens**: CSS variables en `src/styles/theme.css` sincronizadas con `design/design-tokens.tokens.json` (exportado desde Figma). Colores (`--color-gulf-*`, `--color-teal-*`, `--color-zinc-*`), fuentes (`--font-heading`, `--font-body`), spacing, radius, layout.
 
 ## 6. Arquitectura
 

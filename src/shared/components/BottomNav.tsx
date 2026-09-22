@@ -7,6 +7,14 @@ import {
 } from "lucide-react";
 import type { TabScreen } from "@/shared/hooks/useNavigation";
 
+/**
+ * Bottom navigation bar.
+ * Colors from Figma tokens:
+ *   Active:   teal 700 (#007E7C)
+ *   Inactive: zinc 700 (#404040)
+ *   Background: black (#000000)
+ *   Divider: zinc 800 (#272727)
+ */
 export function BottomNav({
   active,
   onNavigate,
@@ -24,12 +32,12 @@ export function BottomNav({
 
   return (
     <div className="h-[80px] left-0 w-full z-[1] flex-shrink-0">
-      <div className="bg-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full">
-        <div className="bg-[#272727] h-px opacity-20 w-full" />
+      <div className="bg-zinc-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full">
+        <div className="bg-zinc-800 h-px opacity-20 w-full" />
         <div className="flex gap-[8px] items-start px-[8px] w-full">
           {items.map(({ label, tab }) => {
             const isActive = tab === active;
-            const color = isActive ? "#007E7C" : "#404040";
+            const color = isActive ? "var(--color-teal-700)" : "var(--color-zinc-700)";
 
             return (
               <button
@@ -58,7 +66,7 @@ export function BottomNav({
                 <p
                   className="leading-none text-[12px] text-center tracking-[-0.12px] w-full"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     color,
                   }}
                 >

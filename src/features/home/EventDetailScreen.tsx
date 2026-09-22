@@ -13,7 +13,7 @@ export function EventDetailScreen({
   const [calendarOn, setCalendarOn] = useState(false);
 
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       {/* Floating back header */}
       <div className="absolute top-0 left-0 right-0 z-10">
         <StatusBar />
@@ -53,22 +53,22 @@ export function EventDetailScreen({
           />
           <div className="absolute bottom-0 left-0 p-[24px] w-full flex flex-col gap-[20px]">
             <div className="flex gap-[8px] items-center">
-              <div className="bg-[#141454] flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px]">
+              <div className="bg-gulf-950 flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px]">
                 <p
                   className="leading-[20px] text-[10px] text-white tracking-[1px] uppercase whitespace-nowrap"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 700,
                   }}
                 >
                   Local Talent
                 </p>
               </div>
-              <div className="bg-[#007e7c] flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px]">
+              <div className="bg-teal-700 flex gap-[6px] items-center px-[8px] py-[4px] rounded-[4px]">
                 <p
                   className="leading-[20px] text-[10px] text-white tracking-[1px] uppercase whitespace-nowrap"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 700,
                   }}
                 >
@@ -79,13 +79,13 @@ export function EventDetailScreen({
             <div>
               <p
                 className="leading-[61.2px] text-[60px] text-white uppercase"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 The midnight
               </p>
               <p
                 className="leading-[61.2px] text-[60px] text-white uppercase"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 echoes
               </p>
@@ -96,12 +96,12 @@ export function EventDetailScreen({
                 fill="none"
                 viewBox="0 0 9.33333 11.6667"
               >
-                <path d={svgPaths.pd490b00} fill="#3B42D3" />
+                <path d={svgPaths.pd490b00} fill="var(--color-gulf-700)" />
               </svg>
               <p
-                className="leading-[20px] text-[#9aadf4] text-[14px] tracking-[0.35px] uppercase whitespace-nowrap"
+                className="leading-[20px] text-gulf-400 text-[14px] tracking-[0.35px] uppercase whitespace-nowrap"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -114,14 +114,14 @@ export function EventDetailScreen({
         {/* Info card */}
         <div className="px-[24px] py-[6px] w-full">
           <div
-            className="bg-[#090909] relative rounded-[8px] w-full"
-            style={{ border: "1px solid #404040" }}
+            className="bg-background relative rounded-[8px] w-full"
+            style={{ border: "1px solid var(--color-zinc-700)" }}
           >
             <div
               className="flex items-center gap-[16px] pb-[21px] pt-[20px] px-[20px]"
               style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
             >
-              <div className="bg-[#002e2d] flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
+              <div className="bg-teal-950 flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
                 <svg
                   className="size-[20px]"
                   fill="none"
@@ -130,7 +130,7 @@ export function EventDetailScreen({
                   <path
                     clipRule="evenodd"
                     d={svgPaths.p1854c300}
-                    fill="#93C9C7"
+                    fill="var(--color-teal-300)"
                     fillRule="evenodd"
                   />
                 </svg>
@@ -139,15 +139,15 @@ export function EventDetailScreen({
                 <p
                   className="leading-[28px] text-[18px] text-white whitespace-nowrap"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 700,
                   }}
                 >
                   Viernes, 15 de Octubre
                 </p>
                 <p
-                  className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.4)]"
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  className="leading-[20px] text-[14px] text-white/40"
+                  style={{ fontFamily: "var(--font-body)" }}
                 >
                   Puertas: 20:00 • Show: 21:30
                 </p>
@@ -158,28 +158,28 @@ export function EventDetailScreen({
               style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
             >
               <div className="flex items-center gap-[16px]">
-                <div className="bg-[#002e2d] flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
+                <div className="bg-teal-950 flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
                   <svg
                     className="size-[20px]"
                     fill="none"
                     viewBox="0 0 13.75 17.5"
                   >
-                    <path d={svgPaths.p1ef64900} fill="#93C9C7" />
+                    <path d={svgPaths.p1ef64900} fill="var(--color-teal-300)" />
                   </svg>
                 </div>
                 <div>
                   <p
                     className="leading-[28px] text-[18px] text-white whitespace-nowrap"
                     style={{
-                      fontFamily: "'Source Sans Pro', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontWeight: 700,
                     }}
                   >
                     Arena de Rock Ciudad
                   </p>
                   <p
-                    className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.4)] whitespace-nowrap"
-                    style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                    className="leading-[20px] text-[14px] text-white/40 whitespace-nowrap"
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
                     Av. Principal 450, Centro
                   </p>
@@ -191,39 +191,39 @@ export function EventDetailScreen({
                   fill="none"
                   viewBox="0 0 18.3333 18.3333"
                 >
-                  <path d={svgPaths.p18a11a40} fill="#00504E" />
+                  <path d={svgPaths.p18a11a40} fill="var(--color-teal-900)" />
                   <path
                     clipRule="evenodd"
                     d={svgPaths.pa5bae80}
-                    fill="#00504E"
+                    fill="var(--color-teal-900)"
                     fillRule="evenodd"
                   />
                 </svg>
               </button>
             </div>
             <div className="flex items-center gap-[16px] p-[20px]">
-              <div className="bg-[#002e2d] flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
+              <div className="bg-teal-950 flex items-center justify-center p-[12px] rounded-[6px] shrink-0">
                 <svg
                   className="size-[20px]"
                   fill="none"
                   viewBox="0 0 15.0039 17.5"
                 >
-                  <path d={svgPaths.p1b48db00} fill="#93C9C7" />
+                  <path d={svgPaths.p1b48db00} fill="var(--color-teal-300)" />
                 </svg>
               </div>
               <div>
                 <p
                   className="leading-[28px] text-[18px] text-white whitespace-nowrap"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 700,
                   }}
                 >
                   $45.00 — $120.00
                 </p>
                 <p
-                  className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.4)] whitespace-nowrap"
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  className="leading-[20px] text-[14px] text-white/40 whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-body)" }}
                 >
                   Garantía oficial RockTicket
                 </p>
@@ -235,23 +235,23 @@ export function EventDetailScreen({
         {/* Calendar toggle */}
         <div className="px-[24px] py-[8px] w-full">
           <div
-            className="bg-[#010101] relative rounded-[8px] w-full"
-            style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+            className="bg-zinc-999 relative rounded-[8px] w-full"
+            style={{ border: "1px solid white/10" }}
           >
             <div className="flex items-center justify-between p-[17px]">
-              <div className="bg-[#001d1d] flex items-center justify-center p-[8px] rounded-[6px]">
+              <div className="bg-teal-3 flex items-center justify-center p-[8px] rounded-[6px]">
                 <svg
                   className="size-[16px]"
                   fill="none"
                   viewBox="0 0 13 14.5"
                 >
-                  <path d={svgPaths.p159bf700} fill="#93C9C7" />
+                  <path d={svgPaths.p159bf700} fill="var(--color-teal-300)" />
                 </svg>
               </div>
               <p
                 className="leading-[20px] text-[14px] text-white tracking-[0.7px] uppercase flex-1 px-[12px]"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -261,15 +261,15 @@ export function EventDetailScreen({
                 onClick={() => setCalendarOn(!calendarOn)}
                 className="h-[24px] relative rounded-[999px] w-[40px] cursor-pointer transition-colors"
                 style={{
-                  backgroundColor: calendarOn ? "#007e7c" : "transparent",
+                  backgroundColor: calendarOn ? "var(--color-teal-700)" : "transparent",
                 }}
               >
                 <div
                   className="absolute inset-0 rounded-[999px]"
-                  style={{ border: "2px solid #bdc8f1" }}
+                  style={{ border: "2px solid var(--color-gulf-300)" }}
                 />
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 bg-[#272727] rounded-[9999px] size-[16px] transition-all duration-200"
+                  className="absolute top-1/2 -translate-y-1/2 bg-zinc-800 rounded-[9999px] size-[16px] transition-all duration-200"
                   style={{
                     left: calendarOn ? "calc(100% - 20px)" : "4px",
                   }}
@@ -284,15 +284,15 @@ export function EventDetailScreen({
           <div className="flex gap-[12px] items-center w-full">
             <p
               className="leading-[32px] text-[30px] text-white tracking-[0.6px] uppercase whitespace-nowrap"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Sobre el Show
             </p>
-            <div className="bg-[#272727] flex-1 h-px" />
+            <div className="bg-zinc-800 flex-1 h-px" />
           </div>
           <p
-            className="leading-[24.38px] text-[15px] text-[rgba(255,255,255,0.6)]"
-            style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+            className="leading-[24.38px] text-[15px] text-white/60"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             Crimson Rebellion regresa a casa para una noche de caos puro.
             Prepárate para el lanzamiento de su nuevo álbum "Echoes of the
@@ -305,15 +305,15 @@ export function EventDetailScreen({
           >
             <div className="flex items-center justify-center px-[24px] py-[16px]">
               <p
-                className="leading-[20px] text-[#ebeffb] text-[16px]"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[20px] text-gulf-100 text-[16px]"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 Ver perfil del artista
               </p>
             </div>
             <div
               className="absolute inset-0 pointer-events-none rounded-[6px]"
-              style={{ border: "2px solid #ebeffb" }}
+              style={{ border: "2px solid var(--color-gulf-100)" }}
             />
           </button>
         </div>
@@ -321,8 +321,8 @@ export function EventDetailScreen({
 
       {/* Bottom CTA */}
       <div
-        className="bg-black px-[24px] pb-[20px] pt-[8px] w-full flex-shrink-0"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
+        className="bg-zinc-black px-[24px] pb-[20px] pt-[8px] w-full flex-shrink-0"
+        style={{ borderTop: "1px solid white/10" }}
       >
         <div className="flex flex-col items-center">
           <div className="flex items-center justify-between w-full">
@@ -330,7 +330,7 @@ export function EventDetailScreen({
               <p
                 className="leading-[24px] text-[12px] text-white"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -339,18 +339,18 @@ export function EventDetailScreen({
               <p
                 className="leading-[24px] text-[30px] text-white"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
                 $45
               </p>
             </div>
-            <button className="bg-[#007e7c] flex flex-1 gap-[12px] items-center justify-center p-[16px] rounded-[6px] mx-[8px] cursor-pointer hover:bg-[#006b69] transition-colors">
+            <button className="bg-teal-700 flex flex-1 gap-[12px] items-center justify-center p-[16px] rounded-[6px] mx-[8px] cursor-pointer hover:bg-teal-800 transition-colors">
               <p
                 className="leading-[24px] text-[18px] text-white whitespace-nowrap"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
@@ -366,9 +366,9 @@ export function EventDetailScreen({
             </button>
           </div>
           <p
-            className="leading-[13.5px] text-[9px] text-[rgba(255,255,255,0.1)] text-center tracking-[1.8px] uppercase mt-[4px]"
+            className="leading-[13.5px] text-[9px] text-white/10 text-center tracking-[1.8px] uppercase mt-[4px]"
             style={{
-              fontFamily: "'Source Sans Pro', sans-serif",
+              fontFamily: "var(--font-body)",
               fontWeight: 700,
             }}
           >

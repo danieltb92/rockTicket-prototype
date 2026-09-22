@@ -10,13 +10,13 @@ export function ProfileCreateScreen({
   onSkip: () => void;
 }) {
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       {/* Background gradient placeholder */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, #1a0a0a 0%, #2a0d0d 50%, #090909 100%)",
+            "linear-gradient(135deg, #1a0a0a 0%, #2a0d0d 50%, var(--background) 100%)",
         }}
       />
 
@@ -28,7 +28,7 @@ export function ProfileCreateScreen({
           <div className="flex flex-col items-center gap-[16px] mb-[60px]">
             <p
               className="leading-[1.1] text-[44px] text-white text-center uppercase"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               CREA TU
               <br />
@@ -72,7 +72,7 @@ export function ProfileCreateScreen({
               <p
                 className="leading-[24px] text-[16px] text-[#3c4043]"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 600,
                 }}
               >
@@ -98,7 +98,7 @@ export function ProfileCreateScreen({
               <p
                 className="leading-[24px] text-[16px] text-white"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 600,
                 }}
               >
@@ -109,8 +109,8 @@ export function ProfileCreateScreen({
             {/* Skip */}
             <button onClick={onSkip} className="cursor-pointer mt-[8px]">
               <p
-                className="leading-[20px] text-[14px] text-[rgba(255,255,255,0.6)] text-center"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[20px] text-[14px] text-white/60 text-center"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 Sign up later
               </p>

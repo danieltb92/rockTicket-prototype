@@ -27,14 +27,14 @@ export function ProfileScreen({
   ];
 
   return (
-    <div className="bg-[#030404] flex flex-col h-full relative w-full">
+    <div className="flex flex-col h-full relative w-full" style={{ backgroundColor: "#040404" }}>
+      <StatusBar />
       <div className="flex-1 overflow-y-auto scrollbar-none">
-        <div className="bg-[#090202] pb-[30px]">
-          <StatusBar />
+        <div className="bg-background pb-[30px]">
           <div className="px-[24px] pt-[24px]">
             <p
               className="leading-[54px] text-[52px] text-white"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Profile
             </p>
@@ -50,7 +50,7 @@ export function ProfileScreen({
             >
               <p
                 className="leading-none text-[46px] text-white"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 PJ
               </p>
@@ -58,13 +58,13 @@ export function ProfileScreen({
             <div className="min-w-0 pt-[4px]">
               <p
                 className="max-w-[230px] overflow-hidden leading-[38px] text-[36px] text-white tracking-[-0.4px] whitespace-nowrap"
-                style={{ fontFamily: "'Squada One', sans-serif" }}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 Pedro Jimenez
               </p>
               <p
-                className="leading-[24px] text-[#9aadf4] text-[22px]"
-                style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                className="leading-[24px] text-gulf-400 text-[22px]"
+                style={{ fontFamily: "var(--font-body)" }}
               >
                 Bogota, Colombia.
               </p>
@@ -79,7 +79,7 @@ export function ProfileScreen({
                 <p
                   className="leading-[16px] text-[#2252df] text-[12px] tracking-[0.2px] uppercase whitespace-nowrap"
                   style={{
-                    fontFamily: "'Source Sans Pro', sans-serif",
+                    fontFamily: "var(--font-body)",
                     fontWeight: 700,
                   }}
                 >
@@ -92,24 +92,24 @@ export function ProfileScreen({
 
         <div className="px-[24px] pb-[28px] pt-[22px]">
           <div className="flex items-center gap-[10px] w-full">
-            <div className="bg-[#141454] flex h-[36px] items-center justify-center rounded-[6px] w-[54px] shrink-0">
+            <div className="bg-gulf-950 flex h-[36px] items-center justify-center rounded-[6px] w-[54px] shrink-0">
               <p
                 className="text-[14px] text-white"
                 style={{
-                  fontFamily: "'Source Sans Pro', sans-serif",
+                  fontFamily: "var(--font-body)",
                   fontWeight: 700,
                 }}
               >
                 LVL.42
               </p>
             </div>
-            <div className="bg-[#d1dbef] flex-1 h-[10px] overflow-hidden rounded-full">
-              <div className="bg-[#3b31bb] h-full rounded-full w-1/2" />
+            <div className="bg-gulf-100 flex-1 h-[10px] overflow-hidden rounded-full">
+              <div className="bg-gulf-700 h-full rounded-full w-1/2" />
             </div>
             <p
               className="leading-[24px] text-[16px] text-white w-[34px]"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >
@@ -118,13 +118,13 @@ export function ProfileScreen({
           </div>
 
           <div
-            className="bg-[#181818] mt-[20px] rounded-[8px] px-[40px] py-[34px] w-full"
-            style={{ border: "2px solid #2a2a2a" }}
+            className="bg-muted mt-[20px] rounded-[8px] px-[40px] py-[34px] w-full"
+            style={{ border: "2px solid var(--color-zinc-800)" }}
           >
             <p
-              className="leading-[18px] text-[#9aadf4] text-[16px] tracking-[0.5px] uppercase"
+              className="leading-[18px] text-gulf-400 text-[16px] tracking-[0.5px] uppercase"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >
@@ -140,7 +140,7 @@ export function ProfileScreen({
                   <p
                     className="leading-[64px] text-[64px] text-white"
                     style={{
-                      fontFamily: "'Source Sans Pro', sans-serif",
+                      fontFamily: "var(--font-body)",
                       fontWeight: 400,
                     }}
                   >
@@ -148,7 +148,7 @@ export function ProfileScreen({
                   </p>
                   <p
                     className="leading-[20px] text-[16px] text-white whitespace-nowrap"
-                    style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
                     {label}
                   </p>
@@ -160,16 +160,16 @@ export function ProfileScreen({
           <div className="flex items-center gap-[18px] mt-[26px]">
             <p
               className="leading-[42px] text-[44px] text-white tracking-[1.4px] uppercase"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Account
             </p>
-            <div className="bg-[#303030] flex-1 h-px" />
+            <div className="bg-zinc-700 flex-1 h-px" />
           </div>
 
           <div className="mt-[34px]">
             {rows.map((row) => (
-              <div key={row.label} className="border-b border-[#565656]">
+              <div key={row.label} className="border-b border-zinc-600">
                 <ProfileRow icon={row.icon} label={row.label} />
               </div>
             ))}

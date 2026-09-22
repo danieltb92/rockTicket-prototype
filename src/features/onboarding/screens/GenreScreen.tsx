@@ -26,13 +26,13 @@ export function GenreScreen({
   const canContinue = selectedGenres.length >= 3;
 
   return (
-    <div className="bg-[#090909] flex flex-col h-full relative w-full">
+    <div className="bg-background flex flex-col h-full relative w-full">
       {/* Background gradient */}
       <div
         className="absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(135deg, #0a1a1a 0%, #0d2a2a 50%, #090909 100%)",
+            "linear-gradient(135deg, #0a1a1a 0%, #0d2a2a 50%, var(--background) 100%)",
         }}
       />
 
@@ -51,7 +51,7 @@ export function GenreScreen({
           <div className="flex flex-col items-start gap-[16px] mb-[32px]">
             <p
               className="leading-[54px] text-[60px] text-white text-start uppercase"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               ¿QUÉ TE HACE
               <br />
@@ -60,8 +60,8 @@ export function GenreScreen({
               CABEZA?
             </p>
             <p
-              className="leading-[30px] text-[24px] text-[rgba(255,255,255,0.7)] text-start"
-              style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+              className="leading-[30px] text-[24px] text-white/70 text-start"
+              style={{ fontFamily: "var(--font-body)" }}
             >
               Selecciona al menos 3
               <br />
@@ -97,7 +97,7 @@ export function GenreScreen({
             <p
               className="leading-[24px] text-[18px] text-white"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 700,
               }}
             >

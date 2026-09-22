@@ -2,7 +2,7 @@ import svgPaths from "@/imports/ExploreFlow/svg-1jcjc478ov";
 
 export function StatusBar() {
   return (
-    <div className="h-[54px] flex items-center justify-between px-[28px] shrink-0 w-full">
+    <div className="h-[54px] flex items-center justify-between px-[28px] shrink-0 w-full" style={{ backgroundColor: "#040404" }}>
       {/* Time */}
       <p
         className="font-bold leading-[20px] text-[15px] text-white whitespace-nowrap"

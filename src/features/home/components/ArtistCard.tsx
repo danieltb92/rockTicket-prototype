@@ -1,3 +1,11 @@
+/**
+ * Artist card component.
+ * Colors from Figma tokens:
+ *   Name:      white, Source Sans Pro Bold
+ *   Genre tag: teal 700 bg, white text (filled) / teal 300 border, teal 300 text (outlined)
+ *   Day/venue: gulf 400, Source Sans Pro Bold
+ *   Gradient:  black/50 → transparent
+ */
 export function ArtistCard({
   img,
   name,
@@ -33,7 +41,7 @@ export function ArtistCard({
           <p
             className="leading-[30px] text-[24px] text-white tracking-[0.72px] whitespace-nowrap"
             style={{
-              fontFamily: "'Source Sans Pro', sans-serif",
+              fontFamily: "var(--font-body)",
               fontWeight: 700,
             }}
           >
@@ -42,25 +50,25 @@ export function ArtistCard({
           <div
             className="flex gap-[6px] items-center px-[8px] py-[2px] rounded-[4px]"
             style={{
-              backgroundColor: outlined ? undefined : "#007e7c",
-              border: outlined ? "2px solid #93c9c7" : undefined,
+              backgroundColor: outlined ? undefined : "var(--color-teal-700)",
+              border: outlined ? "2px solid var(--color-teal-300)" : undefined,
             }}
           >
             <p
               className="leading-[20px] text-[14px] tracking-[-0.14px] whitespace-nowrap"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 600,
-                color: outlined ? "#93c9c7" : "white",
+                color: outlined ? "var(--color-teal-300)" : "white",
               }}
             >
               {genre}
             </p>
           </div>
           <p
-            className="leading-[1.4] text-[#9aadf4] text-[16px]"
+            className="leading-[1.4] text-gulf-400 text-[16px]"
             style={{
-              fontFamily: "'Source Sans Pro', sans-serif",
+              fontFamily: "var(--font-body)",
               fontWeight: 700,
             }}
           >

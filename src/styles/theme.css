@@ -1,84 +1,183 @@
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * rockTicket Design Tokens — synced from Figma
+ * Source: design/design-tokens.tokens.json
+ * Updated: 2026-09-21
+ *
+ * Primary font: Squada One (headings/display)
+ * Body font: Source Sans Pro
+ * Logo font: Libre Barcode 128 Text
+ */
+
 :root {
+  /* ── Base ────────────────────────────────────────────── */
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
+
+  /* ── Semantic colors (from Figma tokens/semantic) ───── */
+  --background: #090909;
+  --background-dark: #040404;
+  --foreground: #ffffff;
+
+  --card: #0c0c0c;
+  --card-foreground: #ffffff;
+
+  --popover: #181818;
+  --popover-foreground: #ffffff;
+
+  /* ── Primary = Teal 700 (main CTA/accent) ───────────── */
+  --primary: #007e7c;
+  --primary-foreground: #ffffff;
+
+  /* ── Secondary = Gulf Blue 950 (dark accent) ────────── */
+  --secondary: #141454;
+  --secondary-foreground: #ffffff;
+
+  /* ── Muted = Zinc 900 ───────────────────────────────── */
+  --muted: #181818;
+  --muted-foreground: #999999;
+
+  /* ── Accent = Teal 600 ──────────────────────────────── */
+  --accent: #009e9b;
+  --accent-foreground: #ffffff;
+
+  /* ── Destructive ────────────────────────────────────── */
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+
+  /* ── Feedback (from Figma Global.feedback) ──────────── */
+  --danger-50: #fef2f2;
+  --danger-500: #ef4444;
+  --danger-700: #b91c1c;
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-700: #b45309;
+  --success-50: #f0fdf4;
+  --success-500: #22c55e;
+  --success-700: #15803d;
+  --info-50: #eff6ff;
+  --info-500: #3b82f6;
+  --info-700: #1d4ed8;
+
+  /* ── Borders & inputs ───────────────────────────────── */
+  --border: #272727;
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
+  --input-background: #181818;
+  --switch-background: #535353;
+
+  /* ── Focus ring ─────────────────────────────────────── */
+  --ring: #007e7c;
+
+  /* ── Typography weights ─────────────────────────────── */
+  --font-weight-light: 300;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ── Font families ──────────────────────────────────── */
+  --font-heading: "Squada One", sans-serif;
+  --font-body: "Source Sans Pro", sans-serif;
+  --font-logo: "Libre Barcode 128 Text", cursive;
+
+  /* ── Border radius (from Figma Global.radius) ───────── */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 999px;
+  --radius: 8px; /* default shadcn radius → Figma md */
+
+  /* ── Spacing (from Figma Global.spacing) ────────────── */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── Sizing (from Figma Global.sizing) ──────────────── */
+  --size-xs: 8px;
+  --size-sm: 12px;
+  --size-md: 16px;
+  --size-lg: 20px;
+  --size-xl: 24px;
+
+  /* ── Opacity (from Figma Global.opacity) ────────────── */
+  --opacity-disabled: 0.4;
+  --opacity-hover: 0.88;
+  --opacity-pressed: 0.72;
+  --opacity-overlay: 0.64;
+
+  /* ── Z-index (from Figma Global.z-index) ────────────── */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-modal: 1000;
+  --z-toast: 1100;
+
+  /* ── Layout (from Figma Global.layout) ──────────────── */
+  --container-padding-mobile: 16px;
+  --container-padding-desktop: 32px;
+  --container-max-width: 1200px;
+
+  /* ── Grid (from Figma grid) ─────────────────────────── */
+  --grid-columns: 4;
+  --grid-gutter: 16px;
+
+  /* ── Responsive (from Figma Global.responsive) ──────── */
+  --mobile-width: 390px;
+  --mobile-height: 900px;
+  --tablet-width: 768px;
+  --desktop-width: 1440px;
+
+  /* ── Image sizes (from Figma Global.image) ──────────── */
+  --image-size-default: 202px;
+  --image-size-1-2: 124px;
+  --image-size-1-4: 80px;
+
+  /* ── Gradient (from Figma gradient) ─────────────────── */
+  --gradient-image: linear-gradient(180deg, #000000 0%, transparent 100%);
+  --gradient-image-angle: linear-gradient(347deg, #000000 0%, transparent 100%);
+
+  /* ── Line heights (from Figma Global.line-height) ───── */
+  --line-height-tight: 12px;
+  --line-height-body: 20px;
+  --line-height-heading: 50px;
+  --line-height-title: 30px;
+  --line-height-subtitle: 28px;
+  --line-height-normal: 24px;
+
+  /* ── Chart colors (keeping shadcn defaults) ─────────── */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Sidebar (not used in mobile app) ───────────────── */
+  --sidebar: #090909;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #007e7c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #181818;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #272727;
+  --sidebar-ring: #007e7c;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-}
-
+/*
+ * rockTicket extended palette — available as Tailwind utilities
+ * Usage: bg-primary-500, text-teal-700, border-gulf-300, etc.
+ */
 @theme inline {
+  /* ── Semantic color mapping ─────────────────────────── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -100,15 +199,83 @@
   --color-input-background: var(--input-background);
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
+
+  /* ── Radius ─────────────────────────────────────────── */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* ── Gulf Blue (primary) scale ──────────────────────── */
+  --color-gulf-50: #f6f7fd;
+  --color-gulf-100: #ebeffb;
+  --color-gulf-200: #d9dff7;
+  --color-gulf-300: #bdc8f1;
+  --color-gulf-400: #9aadf4;
+  --color-gulf-500: #697fdf;
+  --color-gulf-600: #4d60d8;
+  --color-gulf-700: #3b42d3;
+  --color-gulf-800: #3033ae;
+  --color-gulf-900: #27288f;
+  --color-gulf-950: #141454;
+  --color-gulf-980: #0c0c32;
+  --color-gulf-990: #040411;
+
+  /* ── Teal (secondary) scale ─────────────────────────── */
+  --color-teal-1: #f0fffe;
+  --color-teal-50: #e1fffd;
+  --color-teal-100: #b6fffc;
+  --color-teal-200: #41fffb;
+  --color-teal-300: #00eee9;
+  --color-teal-400: #00dcd7;
+  --color-teal-500: #00cdc8;
+  --color-teal-600: #009e9b;
+  --color-teal-700: #007e7c;
+  --color-teal-800: #006160;
+  --color-teal-900: #00504f;
+  --color-teal-950: #002e2d;
+  --color-teal-999: #000b0b;
+
+  /* ── Zinc (neutrals) scale ──────────────────────────── */
+  --color-zinc-1: #fcfcfc;
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f4;
+  --color-zinc-200: #e6e6e6;
+  --color-zinc-300: #d4d4d4;
+  --color-zinc-400: #949494;
+  --color-zinc-500: #727272;
+  --color-zinc-600: #535353;
+  --color-zinc-700: #404040;
+  --color-zinc-800: #272727;
+  --color-zinc-900: #181818;
+  --color-zinc-950: #090909;
+  --color-zinc-999: #010101;
+  --color-zinc-black: #000000;
+  --color-zinc-white: #ffffff;
+  --color-zinc-transparent: #00000000;
+
+  /* ── Feedback colors ────────────────────────────────── */
+  --color-danger-50: #fef2f2;
+  --color-danger-500: #ef4444;
+  --color-danger-700: #b91c1c;
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-700: #b45309;
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-700: #15803d;
+  --color-info-50: #eff6ff;
+  --color-info-500: #3b82f6;
+  --color-info-700: #1d4ed8;
+
+  /* ── Chart colors ───────────────────────────────────── */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+
+  /* ── Sidebar ────────────────────────────────────────── */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -128,55 +295,84 @@
     @apply bg-background text-foreground;
   }
 
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
+  /*
+   * Typography defaults from Figma font styles.
+   * Tailwind utility classes override these (they're in @layer base).
+   */
 
   html {
     font-size: var(--font-size);
+    font-family: var(--font-body);
   }
 
+  /* Headings → Squada One (from Figma font.headings) */
   h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: var(--font-weight-normal);
+    line-height: 125%;
+    letter-spacing: 5%;
   }
 
   h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: var(--font-weight-normal);
+    line-height: 125%;
+    letter-spacing: 5%;
   }
 
   h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: var(--font-weight-normal);
+    line-height: 125%;
+    letter-spacing: 3%;
   }
 
   h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: var(--font-weight-normal);
+    line-height: 125%;
+    letter-spacing: 5%;
+  }
+
+  h5 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    line-height: 125%;
+    letter-spacing: 10%;
+  }
+
+  /* Body text → Source Sans Pro (from Figma font.body) */
+  p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: var(--font-weight-normal);
+    line-height: 20px;
   }
 
   label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: var(--font-weight-normal);
+    line-height: 14.4px;
   }
 
   button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    line-height: 14px;
   }
 
   input {
-    font-size: var(--text-base);
+    font-family: var(--font-body);
+    font-size: 16px;
     font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+    line-height: 20px;
   }
 }
 

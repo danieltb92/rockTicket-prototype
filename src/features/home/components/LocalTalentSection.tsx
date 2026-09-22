@@ -12,14 +12,14 @@ export function LocalTalentSection({
       <div className="flex flex-col gap-[8px] w-full">
         <p
           className="leading-[30px] text-[40px] text-white tracking-[-0.5px] capitalize"
-          style={{ fontFamily: "'Squada One', sans-serif" }}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           Local Talent Spotlight
         </p>
         <p
-          className="leading-[16px] text-[#9aadf4] text-[14px] tracking-[1.2px] uppercase"
+          className="leading-[16px] text-gulf-400 text-[14px] tracking-[1.2px] uppercase"
           style={{
-            fontFamily: "'Source Sans Pro', sans-serif",
+            fontFamily: "var(--font-body)",
             fontWeight: 700,
           }}
         >

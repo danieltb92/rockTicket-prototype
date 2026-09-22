@@ -20,22 +20,22 @@ export function HomeScreen({
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
-    <div className="bg-[#090909] flex flex-col h-full isolate items-start relative w-full">
+    <div className="bg-background flex flex-col h-full isolate items-start relative w-full">
       {/* Fixed header */}
-      <div className="absolute top-0 left-0 right-0 z-[2] bg-[#0A0505]">
+      <div className="absolute top-0 left-0 right-0 z-[2]" style={{ backgroundColor: "#040404" }}>
         <StatusBar />
         <div className="flex items-center justify-between px-[24px] py-[16px] w-full">
           <div>
             <p
               className="leading-[1.5] text-[32px] text-white"
-              style={{ fontFamily: "'Squada One', sans-serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Bogotá, D.C.
             </p>
             <p
-              className="leading-[1.5] text-[#697fdf] text-[20px]"
+              className="leading-[1.5] text-gulf-500 text-[20px]"
               style={{
-                fontFamily: "'Source Sans Pro', sans-serif",
+                fontFamily: "var(--font-body)",
                 fontWeight: 600,
               }}
             >
