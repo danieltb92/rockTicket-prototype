@@ -1,3 +1,5 @@
+import "../styles/index.css";
+
 import { Button } from "@/app/components/ui/button";
 
 export default {
