@@ -34,8 +34,7 @@ export function MobileFrame({ children }: { children: ReactNode }) {
             width: PHONE_WIDTH,
             height: PHONE_HEIGHT,
             borderRadius: 40,
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.08), 0 40px 80px rgba(0,0,0,0.8)",
+            boxShadow: "0 0 0 1px rgba(255,255,255,0.08)",
             transform: `scale(${scale})`,
             transformOrigin: "center center",
           }}
