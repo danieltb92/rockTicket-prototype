@@ -18,9 +18,11 @@ import type { TabScreen } from "@/shared/hooks/useNavigation";
 export function BottomNav({
   active,
   onNavigate,
+  isMobile = false,
 }: {
   active: TabScreen;
   onNavigate: (screen: TabScreen) => void;
+  isMobile?: boolean;
 }) {
   const items: Array<{ label: string; tab?: TabScreen }> = [
     { label: "Home", tab: "home" },
@@ -30,11 +32,30 @@ export function BottomNav({
     { label: "Profile", tab: "profile" },
   ];
 
+  const navStyles = isMobile
+    ? {
+        position: "fixed" as const,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        paddingBottom: "env(safe-area-inset-bottom, 0)",
+        backgroundColor: "var(--color-zinc-black)",
+      }
+    : {};
+
+  const containerStyles = isMobile
+    ? { borderTop: "1px solid var(--color-zinc-800)" }
+    : {};
+
   return (
-    <div className="h-[80px] left-0 w-full z-[1] flex-shrink-0">
-      <div className="bg-zinc-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full">
+    <div
+      className="h-[80px] left-0 w-full z-[1] flex-shrink-0"
+      style={navStyles}
+    >
+      <div className="bg-zinc-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full" style={containerStyles}>
         <div className="bg-zinc-800 h-px opacity-20 w-full" />
-        <div className="flex gap-[8px] items-start px-[8px] w-full">
+        <div className="flex gap-[8px] items-start px-[8px] w-full pb-[8px]">
           {items.map(({ label, tab }) => {
             const isActive = tab === active;
             const color = isActive ? "var(--color-teal-700)" : "var(--color-zinc-700)";

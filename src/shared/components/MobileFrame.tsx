@@ -1,10 +1,12 @@
 import { type ReactNode, useRef, useState, useEffect } from "react";
 import { DevResetButton } from "./DevResetButton";
+import { useIsMobile } from "@/shared/hooks/useIsMobile";
 
 const PHONE_WIDTH = 390;
 const PHONE_HEIGHT = 844;
 
 export function MobileFrame({ children }: { children: ReactNode }) {
+  const isMobile = useIsMobile();
   const scaleRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
@@ -22,6 +24,28 @@ export function MobileFrame({ children }: { children: ReactNode }) {
     return () => observer.disconnect();
   }, []);
 
+  // MODO MÓVIL REAL: pantalla completa, sin marco, sin footer, sin StatusBar simulada
+  if (isMobile) {
+    return (
+      <div
+        className="relative min-h-screen w-full"
+        style={{
+          height: "100dvh",
+          width: "100vw",
+          paddingTop: "env(safe-area-inset-top, 0)",
+          paddingBottom: "env(safe-area-inset-bottom, 0)",
+          paddingLeft: "env(safe-area-inset-left, 0)",
+          paddingRight: "env(safe-area-inset-right, 0)",
+        }}
+      >
+        <div className="relative flex flex-col h-full w-full bg-background">
+          {children}
+        </div>
+      </div>
+    );
+  }
+
+  // MODO DESKTOP (DEMO): marco escalado + footer
   return (
     <div className="min-h-screen bg-[#050505] flex flex-col w-full h-full">
       <div

@@ -11,12 +11,14 @@ import { StatusBar } from "@/shared/components/StatusBar";
 import { BottomNav } from "@/shared/components/BottomNav";
 import type { TabScreen } from "@/shared/hooks/useNavigation";
 import { ProfileRow } from "./components/ProfileRow";
+import { useIsMobile } from "@/shared/hooks/useIsMobile";
 
 export function ProfileScreen({
   onTabNavigate,
 }: {
   onTabNavigate: (screen: TabScreen) => void;
 }) {
+  const isMobile = useIsMobile();
   const rows = [
     { label: "Personal information", icon: <User className="size-[25px]" strokeWidth={2.2} /> },
     { label: "Payments and payout", icon: <WalletCards className="size-[25px]" strokeWidth={2.2} /> },
@@ -28,7 +30,7 @@ export function ProfileScreen({
 
   return (
     <div className="flex flex-col h-full relative w-full" style={{ backgroundColor: "#040404" }}>
-      <StatusBar />
+      {!isMobile && <StatusBar />}
       <div className="flex-1 overflow-y-auto scrollbar-none">
         <div className="bg-background pb-[30px]">
           <div className="px-[24px] pt-[24px]">
@@ -177,7 +179,7 @@ export function ProfileScreen({
         </div>
       </div>
 
-      <BottomNav active="profile" onNavigate={onTabNavigate} />
+      <BottomNav active="profile" onNavigate={onTabNavigate} isMobile={isMobile} />
     </div>
   );
 }

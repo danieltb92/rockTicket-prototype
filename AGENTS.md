@@ -17,10 +17,14 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - **Path alias**: `@/` maps to `src/` (configured in both `tsconfig.json` and `vite.config.ts`)
 - **Navigation**: Custom hook (`src/shared/hooks/useNavigation.ts`), not react-router. Screens: home, event, artist, profile.
 - **State**: `useOnboardingState` hook with localStorage key `rockticket_onboarding`
-- **Mobile frame**: 390×844px viewport scaled inside `MobileFrame` component
+- **Mobile detection**: `useIsMobile` hook detects real mobile devices (userAgent + width < 768px)
+- **Mobile frame**: 390×844px viewport scaled inside `MobileFrame` component (desktop demo mode)
+- **Responsive modes**:
+  - **Desktop**: Scaled phone frame (390×844) + footer (scroll hint + Reset) + simulated StatusBar
+  - **Mobile real**: Full viewport (100vw/100dvh), no frame, no footer, real OS StatusBar, safe-area insets
 - **Layout raíz**: `MobileFrame` es autosuficiente con `flex-col min-h-screen`. No necesita AppShell ni wrappers. Contiene:
-  - Área `flex-1` con el viewport del teléfono escalado vía `ResizeObserver`
-  - Footer `flex-shrink-0` con el aviso de scroll y el botón Reset
+  - Área `flex-1` con el viewport del teléfono escalado vía `ResizeObserver` (desktop)
+  - Footer `flex-shrink-0` con el aviso de scroll y el botón Reset (desktop)
 - **Docs**: `docs/PRD.md` contiene el Product Requirements Document completo
 
 ## Key Gotchas
@@ -34,6 +38,9 @@ Figma Make-generated React prototype (rockTicket - concert ticketing). Not a pro
 - **Sin scroll vertical**: El prototipo debe verse completo en una sola pantalla. MobileFrame escala el teléfono para que quepa junto al footer sin scroll. No usar `position: fixed` ni `absolute` fuera del viewport del teléfono.
 - **Tailwind v4 CSS variable gotcha**: CSS variables with hyphens (e.g. `--background-dark`) **cannot** be used as Tailwind utility classes (`bg-background-dark` compiles to nothing). Use inline `style={{ backgroundColor: "var(--background-dark)" }}` or hardcoded hex instead. Variables without hyphens (`--background`, `--foreground`) work fine as `bg-background`, `text-foreground`.
 - **StatusBar background**: Uses inline `style={{ backgroundColor: "#040404" }}` for this reason. Do not replace with Tailwind class.
+- **Mobile responsive**: `MobileFrame` renders different modes based on `useIsMobile()`. In mobile mode, it uses `100dvh`, `viewport-fit=cover`, and `env(safe-area-inset-*)`. Do not assume fixed 390×844 in mobile.
+- **BottomNav safe area**: In mobile mode, `BottomNav` uses `position: fixed; bottom: 0` with `padding-bottom: env(safe-area-inset-bottom)` for iPhone home indicator. Pass `isMobile` prop from screens.
+- **StatusBar meta tags**: `index.html` includes `theme-color` (Android), `apple-mobile-web-app-status-bar-style: black-translucent` (iOS PWA). Only works in PWA/Installed mode.
 
 ## UI Stack
 

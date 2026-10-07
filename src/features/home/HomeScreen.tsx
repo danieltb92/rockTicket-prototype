@@ -7,6 +7,7 @@ import { CategoryChips } from "./components/CategoryChips";
 import { MajorEventsSection } from "./components/MajorEventsSection";
 import { LocalTalentSection } from "./components/LocalTalentSection";
 import { PopularVenuesSection } from "./components/PopularVenuesSection";
+import { useIsMobile } from "@/shared/hooks/useIsMobile";
 
 export function HomeScreen({
   onEventClick,
@@ -18,12 +19,13 @@ export function HomeScreen({
   onTabNavigate: (screen: TabScreen) => void;
 }) {
   const [activeCategory, setActiveCategory] = useState("All");
+  const isMobile = useIsMobile();
 
   return (
     <div className="bg-background flex flex-col h-full isolate items-start relative w-full">
       {/* Fixed header */}
       <div className="absolute top-0 left-0 right-0 z-[2]" style={{ backgroundColor: "#040404" }}>
-        <StatusBar />
+        {!isMobile && <StatusBar />}
         <div className="flex items-center justify-between px-[24px] py-[16px] w-full">
           <div>
             <p
@@ -67,7 +69,7 @@ export function HomeScreen({
         <PopularVenuesSection />
       </div>
 
-      <BottomNav active="home" onNavigate={onTabNavigate} />
+      <BottomNav active="home" onNavigate={onTabNavigate} isMobile={isMobile} />
     </div>
   );
 }

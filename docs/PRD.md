@@ -21,10 +21,15 @@ Validar visual e interactivamente el flujo de exploración de tickets antes de p
 
 Navegación mediante hook personalizado `useNavigation` con transiciones CSS (sin react-router).
 
+**Modos de visualización (nuevo):**
+- **Desktop (Demo)**: Marco de teléfono 390×844px escalado, footer con scroll hint + Reset, StatusBar simulada
+- **Móvil real**: Pantalla completa nativa (100vw/100dvh), sin marco, sin footer, StatusBar real del OS, safe-area insets (notch/home indicator)
+
 ## 4. Constraints críticas
 
-- **Sin scroll vertical.** Todo el contenido (teléfono + footer) debe verse completo en una sola pantalla sin importar el tamaño de la ventana.
-- **Viewport fijo.** El teléfono mide 390×844px y se escala uniformemente para llenar el espacio disponible.
+- **Sin scroll vertical en desktop.** Todo el contenido (teléfono + footer) debe verse completo en una sola pantalla sin importar el tamaño de la ventana.
+- **Viewport fijo en desktop.** El teléfono mide 390×844px y se escala uniformemente para llenar el espacio disponible.
+- **Móvil real: viewport fluido.** En dispositivos móviles reales, usa `100vw` / `100dvh` con `viewport-fit=cover` y `env(safe-area-inset-*)` para notch y home indicator.
 - **Sin enrutamiento real.** Navegación interna por hook, no por router.
 - **Estado en localStorage.** La clave `rockticket_onboarding` persiste la sesión. El botón Reset la elimina y recarga.
 - **Sin llamadas API.** Todos los datos son mock/estáticos.
@@ -44,13 +49,14 @@ Navegación mediante hook personalizado `useNavigation` con transiciones CSS (si
 ```
 index.html → src/main.tsx → src/app/App.tsx
                               └── MobileFrame (layout raíz)
-                                    ├── flex-1: viewport 390×844px escalado
-                                    └── flex-shrink-0: footer (scroll hint + Reset)
+                                    ├── Desktop: flex-1 viewport 390×844px escalado + footer
+                                    └── Mobile:  100vw/100dvh, safe-area insets, sin footer
 ```
 
 - `MobileFrame` es el layout raíz autosuficiente (`flex-col`, `min-h-screen`).
-- El `ResizeObserver` mide el área `flex-1` para escalar el teléfono proporcionalmente.
-- El footer con el aviso de scroll y el botón Reset están dentro de MobileFrame, fuera del viewport del teléfono.
+- **Desktop**: El `ResizeObserver` mide el área `flex-1` para escalar el teléfono proporcionalmente. Footer con aviso de scroll y botón Reset.
+- **Mobile**: Detectado via hook `useIsMobile` (userAgent + width < 768px). Renderiza children a pantalla completa con padding de safe areas. Sin marco, sin footer, StatusBar simulada oculta.
+- Meta tags en `index.html` para theming de status bar: `theme-color` (Android), `apple-mobile-web-app-status-bar-style: black-translucent` (iOS PWA).
 
 ## 7. Assets
 
@@ -62,7 +68,7 @@ Todos los assets provienen de Figma Make como imports `figma:asset/*`. No existe
 - Autenticación real con proveedor
 - Pagos / checkout / carrito
 - Tests automatizados (unitarios, e2e)
-- Responsive design fuera del viewport 390×844px
+- **Responsive design fuera del viewport 390×844px en modo desktop demo** (el modo mobile real sí es responsive nativo)
 - Modo oscuro / temas adicionales
-- PWA / service workers
+- PWA / service workers (solo meta tags básicos para status bar theming)
 - Rendimiento SEO / SSR
