@@ -1,8 +1,15 @@
 import svgPaths from "@/imports/ExploreFlow/svg-1jcjc478ov";
 
-export function StatusBar() {
+interface StatusBarProps {
+  backgroundColor?: string;
+}
+
+export function StatusBar({ backgroundColor = "transparent" }: StatusBarProps) {
   return (
-    <div className="h-[54px] flex items-center justify-between px-[28px] shrink-0 w-full" style={{ backgroundColor: "#040404" }}>
+    <div
+      className="h-[54px] flex items-center justify-between px-[28px] shrink-0 w-full"
+      style={{ backgroundColor }}
+    >
       {/* Time */}
       <p
         className="font-bold leading-[20px] text-[15px] text-white whitespace-nowrap"

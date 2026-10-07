@@ -29,8 +29,8 @@ export function ProfileScreen({
   ];
 
   return (
-    <div className="flex flex-col h-full relative w-full" style={{ backgroundColor: "#040404" }}>
-      {!isMobile && <StatusBar />}
+    <div className="flex flex-col h-full relative w-full" style={{ backgroundColor: "var(--background)" }}>
+      {!isMobile && <StatusBar backgroundColor="var(--background)" />}
       <div className="flex-1 overflow-y-auto scrollbar-none">
         <div className="bg-background pb-[30px]">
           <div className="px-[24px] pt-[24px]">

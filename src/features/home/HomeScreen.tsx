@@ -24,8 +24,8 @@ export function HomeScreen({
   return (
     <div className="bg-background flex flex-col h-full isolate items-start relative w-full">
       {/* Fixed header */}
-      <div className="absolute top-0 left-0 right-0 z-[2]" style={{ backgroundColor: "#040404" }}>
-        {!isMobile && <StatusBar />}
+      <div className="absolute top-0 left-0 right-0 z-[2]" style={{ backgroundColor: "var(--background)" }}>
+        {!isMobile && <StatusBar backgroundColor="var(--background)" />}
         <div className="flex items-center justify-between px-[24px] py-[16px] w-full">
           <div>
             <p
