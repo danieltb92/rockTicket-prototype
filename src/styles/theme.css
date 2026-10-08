@@ -110,6 +110,13 @@
   --size-lg: 20px;
   --size-xl: 24px;
 
+  /* ── Component specific sizing (Figma specs) ────────── */
+  --bottom-nav-height: 64px;
+  --status-bar-height: 54px;
+  --icon-size-nav: 24px;
+  --icon-size-nav-lg: 25px;
+  --chip-height: 32px;
+
   /* ── Opacity (from Figma Global.opacity) ────────────── */
   --opacity-disabled: 0.4;
   --opacity-hover: 0.88;
@@ -205,6 +212,31 @@
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  /* ── Spacing (from Figma Global.spacing) ────────────── */
+  --spacing-0: var(--space-0);
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-5: var(--space-5);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-10: var(--space-10);
+  --spacing-12: var(--space-12);
+  --spacing-16: var(--space-16);
+
+  /* ── Container padding ───────────────────────────────── */
+  --container-padding-mobile: var(--container-padding-mobile);
+  --container-padding-desktop: var(--container-padding-desktop);
+
+  /* ── Component specific sizing ───────────────────────── */
+  --bottom-nav-height: var(--bottom-nav-height);
+  --status-bar-height: var(--status-bar-height);
+  --icon-size-nav: var(--icon-size-nav);
+  --icon-size-nav-lg: var(--icon-size-nav-lg);
+  --chip-height: var(--chip-height);
 
   /* ── Gulf Blue (primary) scale ──────────────────────── */
   --color-gulf-50: #f6f7fd;

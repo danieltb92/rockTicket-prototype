@@ -14,6 +14,9 @@ import type { TabScreen } from "@/shared/hooks/useNavigation";
  *   Inactive: zinc 700 (#404040)
  *   Background: black (#000000)
  *   Divider: zinc 800 (#272727)
+ * Specs from DESIGN.md:
+ *   Height: 64px
+ *   Icons: 24px (25px for Heart/User)
  */
 export function BottomNav({
   active,
@@ -50,12 +53,12 @@ export function BottomNav({
 
   return (
     <div
-      className="h-[80px] left-0 w-full z-[1] flex-shrink-0"
+      className="h-[var(--bottom-nav-height)] left-0 w-full z-[1] flex-shrink-0"
       style={navStyles}
     >
       <div className="bg-zinc-black flex flex-col gap-[2px] h-full items-start overflow-clip w-full" style={containerStyles}>
         <div className="bg-zinc-800 h-px opacity-20 w-full" />
-        <div className="flex gap-[8px] items-start px-[8px] w-full pb-[8px]">
+        <div className="flex gap-2 items-start px-4 w-full pb-2">
           {items.map(({ label, tab }) => {
             const isActive = tab === active;
             const color = isActive ? "var(--color-teal-700)" : "var(--color-zinc-700)";
@@ -64,28 +67,28 @@ export function BottomNav({
               <button
                 key={label}
                 onClick={() => tab && onNavigate(tab)}
-                className="flex flex-1 flex-col gap-[8px] items-center min-w-0 py-[9px] cursor-pointer disabled:cursor-default bg-transparent"
+                className="flex flex-1 flex-col gap-2 items-center min-w-0 py-[9px] cursor-pointer disabled:cursor-default bg-transparent"
                 disabled={!tab}
               >
-                <div className="size-[24px] flex items-center justify-center">
+                <div className="size-[var(--icon-size-nav)] flex items-center justify-center">
                   {label === "Home" && (
-                    <Home className="size-[24px]" color={color} strokeWidth={2.25} />
+                    <Home className="size-[var(--icon-size-nav)]" color={color} strokeWidth={2.25} />
                   )}
                   {label === "Search" && (
-                    <Search className="size-[24px]" color={color} strokeWidth={2.25} />
+                    <Search className="size-[var(--icon-size-nav)]" color={color} strokeWidth={2.25} />
                   )}
                   {label === "Tickets" && (
-                    <Ticket className="size-[24px]" color={color} strokeWidth={2.25} />
+                    <Ticket className="size-[var(--icon-size-nav)]" color={color} strokeWidth={2.25} />
                   )}
                   {label === "My Bands" && (
-                    <Heart className="size-[25px]" color={color} strokeWidth={2.25} />
+                    <Heart className="size-[var(--icon-size-nav-lg)]" color={color} strokeWidth={2.25} />
                   )}
                   {label === "Profile" && (
-                    <User className="size-[25px]" color={color} strokeWidth={2.25} />
+                    <User className="size-[var(--icon-size-nav-lg)]" color={color} strokeWidth={2.25} />
                   )}
                 </div>
                 <p
-                  className="leading-none text-[12px] text-center tracking-[-0.12px] w-full"
+                  className="leading-none text-xs text-center tracking-[-0.12px] w-full"
                   style={{
                     fontFamily: "var(--font-body)",
                     color,
