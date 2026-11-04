@@ -1,17 +1,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * rockTicket Design Tokens — synced from Figma
- * Source: design/design-tokens.tokens.json
- * Updated: 2026-09-21
- *
- * Primary font: Squada One (headings/display)
- * Body font: Source Sans Pro
- * Logo font: Libre Barcode 128 Text
+ * rockTicket Design Tokens — synced from Figma via MCP
+ * Source: design/tokens.json
+ * Exported via figwright MCP
  */
 
+/* ── Base ────────────────────────────────────────────── */
 :root {
-  /* ── Base ────────────────────────────────────────────── */
   --font-size: 16px;
 
   /* ── Semantic colors (from Figma tokens/semantic) ───── */
@@ -282,7 +278,6 @@
   --color-zinc-900: #181818;
   --color-zinc-950: #090909;
   --color-zinc-999: #010101;
-  --color-zinc-black: #000000;
   --color-zinc-white: #ffffff;
   --color-zinc-transparent: #00000000;
 
@@ -327,11 +322,7 @@
     @apply bg-background text-foreground;
   }
 
-  /*
-   * Typography defaults from Figma font styles.
-   * Tailwind utility classes override these (they're in @layer base).
-   */
-
+  /* Typography defaults from Figma font styles. */
   html {
     font-size: var(--font-size);
     font-family: var(--font-body);

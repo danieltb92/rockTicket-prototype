@@ -79,7 +79,7 @@ Living documentation of the rockTicket design. Update this file when designs cha
 | Background Dark | `#040404` | Darker background |
 | Border | `#272727` | Dividers, borders |
 | Destructive | `#d4183d` | Errors, delete |
-| Gradient/Image | `linear-gradient(#000000CC 0%, #00000000 100%)` | Image overlay |
+| Destructive-foreground | `#ffffff` | |
 
 ## Typography
 
@@ -139,13 +139,13 @@ Living documentation of the rockTicket design. Update this file when designs cha
 | 12 | 48px |
 | 16 | 64px |
 
-### Layout
-| Token | Value |
-|-------|-------|
-| container/padding-mobile | 16px |
-| container/padding-desktop | 32px |
-| grid/columns | 4 |
-| grid/gutter | 16px |
+## Layout
+
+- **Token** | **Value**
+- container/padding-mobile | 16px
+- container/padding-desktop | 32px
+- grid/columns | 4
+- grid/gutter | 16px
 
 ## Border Radius
 
@@ -217,7 +217,18 @@ Living documentation of the rockTicket design. Update this file when designs cha
 | Tickets | Implemented | Mockups > Tickets |
 | Notifications | Implemented | Mockups > Notifications |
 
+## Changelog
+
+| Date | Change |
+|------|--------|
+| 2026-11-04 | Sincronizado de diseño vía MCP (figwright): tokens y theme.css actualizados desde Figma. El flujo anterior (export-figma-tokens.mjs) fue reemplazado por conexión directa al MCP. |
+| 2026-10-07 | Added mobile responsive modes: desktop (scaled phone frame) vs mobile real (full viewport, safe areas, fixed BottomNav). New `useIsMobile` hook. Updated `MobileFrame`, `BottomNav`, `HomeScreen`, `ProfileScreen`. Added meta tags for status bar theming (`theme-color`, `apple-mobile-web-app-status-bar-style`). |
+| 2026-09-20 | Initial design system from Figma |
+| 2026-09-21 | Merged plugin tokens: Global (primary gulf blue, secondary teal full scales), Tokens (primary, secundary, neutrals), Title/UI typography, spacing 0-16, radius 0-full, layout tokens |
+| 2026-09-21 | Rewrote `theme.css` con todos los tokens de Figma como variables CSS. Actualizados todos los componentes y screens para usar CSS variables en lugar de valores hex. Corregido fondo StatusBar. Build verificado passing. |
+
 ## Component Families
+
 - Header
 - Main
 - NavBar
@@ -242,13 +253,3 @@ Living documentation of the rockTicket design. Update this file when designs cha
 - Chosee Genre
 - Location & Alerts
 - AuthLogin
-
-## Changelog
-
-| Date | Change |
-|------|--------|
-| 2026-10-07 | Added mobile responsive modes: desktop (scaled phone frame) vs mobile real (full viewport, safe areas, fixed BottomNav). New `useIsMobile` hook. Updated `MobileFrame`, `BottomNav`, `HomeScreen`, `ProfileScreen`. Added meta tags for status bar theming (`theme-color`, `apple-mobile-web-app-status-bar-style`). |
-| 2026-09-20 | Initial design system from Figma |
-| 2026-09-21 | Merged plugin tokens: Global (primary gulf blue, secondary teal full scales), Tokens (primary, secundary, neutrals), Title/UI typography, spacing 0-16, radius 0-full, layout tokens |
-| 2026-09-21 | Rewrote `theme.css` with all Figma tokens as CSS variables. Updated all components (Button, Badge, Card, BottomNav, EventCard, ArtistCard, VenueCard, CategoryChips, section headers) and screens (Home, EventDetail, Artist, Profile, Onboarding x6, Login) to use CSS variables instead of hardcoded hex values. Fixed StatusBar background (inline style for `--background-dark` due to Tailwind v4 hyphenated variable gotcha). Build verified passing. |
-

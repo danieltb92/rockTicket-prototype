@@ -24,20 +24,10 @@ export function MobileFrame({ children }: { children: ReactNode }) {
     return () => observer.disconnect();
   }, []);
 
-  // MODO MÓVIL REAL: pantalla completa, sin marco, sin footer, sin StatusBar simulada
+  // MODO MÓVIL REAL: full viewport, children manejan fixed + safe-area
   if (isMobile) {
     return (
-      <div
-        className="relative min-h-screen w-full"
-        style={{
-          height: "100dvh",
-          width: "100vw",
-          paddingTop: "env(safe-area-inset-top, 0)",
-          paddingBottom: "env(safe-area-inset-bottom, 0)",
-          paddingLeft: "env(safe-area-inset-left, 0)",
-          paddingRight: "env(safe-area-inset-right, 0)",
-        }}
-      >
+      <div className="relative h-[100dvh] w-[100vw]">
         <div className="relative flex flex-col h-full w-full bg-background">
           {children}
         </div>

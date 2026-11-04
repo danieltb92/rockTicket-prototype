@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cn } from "@/app/components/ui/utils";
 import svgPaths from "@/imports/ExploreFlow/svg-1jcjc478ov";
 import { StatusBar } from "@/shared/components/StatusBar";
 import { BottomNav } from "@/shared/components/BottomNav";
@@ -21,12 +22,26 @@ export function HomeScreen({
   const [activeCategory, setActiveCategory] = useState("All");
   const isMobile = useIsMobile();
 
+  // Header height: status bar (54px) + header content (56px approx)
+  const headerHeight = isMobile ? "calc(var(--status-bar-height) + 56px)" : "160px";
+  // BottomNav height + safe area inset
+  const bottomNavHeight = isMobile ? "calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0))" : "0";
+
   return (
     <div className="bg-background flex flex-col h-full isolate items-start relative w-full">
-      {/* Fixed header */}
-      <div className="absolute top-0 left-0 right-0 z-[2]" style={{ backgroundColor: "var(--background)" }}>
+      {/* Fixed header - absolute en desktop, fixed en móvil */}
+      <div
+        className={cn(
+          "left-0 right-0 z-[2]",
+          isMobile ? "fixed top-0" : "absolute top-0"
+        )}
+        style={{
+          backgroundColor: "var(--background)",
+          top: isMobile ? "env(safe-area-inset-top, 0)" : 0,
+        }}
+      >
         {!isMobile && <StatusBar backgroundColor="var(--background)" />}
-        <div className="flex items-center justify-between px-[24px] py-[16px] w-full">
+        <div className="flex items-center justify-between px-6 py-4 w-full">
           <div>
             <p
               className="leading-[1.5] text-[32px] text-white"
@@ -61,8 +76,14 @@ export function HomeScreen({
         </div>
       </div>
 
-      {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto pt-[160px] w-full scrollbar-none">
+      {/* Scrollable content con padding dinámico para header/bottomNav fijos */}
+      <div
+        className="flex-1 overflow-y-auto w-full scrollbar-none"
+        style={{
+          paddingTop: headerHeight,
+          paddingBottom: bottomNavHeight,
+        }}
+      >
         <CategoryChips active={activeCategory} onSelect={setActiveCategory} />
         <MajorEventsSection onEventClick={onEventClick} />
         <LocalTalentSection onArtistClick={onArtistClick} />
